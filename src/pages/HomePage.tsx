@@ -1,11 +1,10 @@
 import React from "react";
+import MainHome from "../components/HomePage/Main/MainHome";
 
 const HomePage = () => {
   return (
     <div>
-      <div className="">
-        <p>test123</p>
-      </div>
+      <MainHome />
     </div>
   );
 };

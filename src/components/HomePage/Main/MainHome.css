@@ -1,0 +1,12 @@
+.home_main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  background-image: url("/public/wallpaper-skin.png");
+}
+
+.start_item {
+  text-align: center;
+}
