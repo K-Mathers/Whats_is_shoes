@@ -1,7 +1,7 @@
-import LogoSVG from "../../../../assets/HeaderAssets/LogoSVG/LogoSVG";
-import "./Header.css";
+import LogoSVG from "../../../../../../assets/HeaderAssets/LogoSVG/LogoSVG";
+import "./HeaderHome.css";
 
-const Header = () => {
+const HeaderHome = () => {
   return (
     <header className="header">
       <div className="link-block">
@@ -35,4 +35,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderHome;
