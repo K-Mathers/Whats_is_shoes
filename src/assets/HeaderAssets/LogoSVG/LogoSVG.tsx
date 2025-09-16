@@ -6,7 +6,7 @@ const LogoSVG: React.FC<ISVGType> = ({ width = "42", height = "42" }) => {
     <svg
       width={width}
       height={height}
-      viewBox="0 0 42 42"
+      viewBox="0 0 36 42"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

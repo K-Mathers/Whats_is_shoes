@@ -1,0 +1,54 @@
+.footer{
+  display: flex;
+  background-color: #FE2E44;
+  padding: 4.3rem 4.8rem;
+}
+
+.footer-left-block{
+  max-width: 261px;
+}
+
+.footer-title-block{
+  display: flex;
+}
+
+.footer-title{
+  font-weight: 400;
+  font-size: 53px;
+  color: #000;
+}
+
+.footer-description{
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  color: #000
+}
+
+.footer h3{
+  font-family: "Franchise Regular", sans-serif;
+  font-weight: 400;
+  font-size: 46px;
+  letter-spacing: 0.01em;
+  color: #000;
+  text-align: center;
+}
+
+.footer-link{
+  font-weight: 400;
+  font-size: 21px;
+  letter-spacing: 0.01em;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.footer-right-block{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8.5rem;
+}
+
+.links-block{
+  display: flex;
+  flex-direction: column;
+}
