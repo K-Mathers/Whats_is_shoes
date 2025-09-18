@@ -1,18 +1,11 @@
 import React from "react";
 import "./MainHome.css";
-import star from "../../../../../../public/Star_1.png";
-import star2 from "../../../../../../public/Star_2.png";
-import ProductCard from "./ProductCard/ProductCard";
-import legendarySneakers from "../../../../../../public/Adidas_SuperStar.png";
-import coolColorways from "../../../../../../public/Nike_adjust1.png";
-import walkingShoes from "../../../../../../public/Nb_wrdp.png";
-import whiteShoes from "../../../../../../public/Air_max90.png";
-import CustomButton from "../../../../CustomButton/CustomButton";
+import CustomButton from "../../../CustomButton/CustomButton";
 
 const MainHome = () => {
   return (
     <>
-      <main className="min-h-screen overflow-hidden">
+      <main className="min-h-screen">
         <section className="pt-24 pb-12 flex">
           <div className="flex justify-center items-center">
             <div className="text-center">
@@ -67,47 +60,9 @@ const MainHome = () => {
           </div>
         </section>
 
-        <section className="pt-24 relative min-h-screen">
-          <div className="w-full h-full">
-            <p className="font-franchise absolute top-[15%] left-[5%] md:left-[10%] z-10 text-8xl">
-              top
-              <br />
-              collection
-            </p>
-
-            <img src={star} className="absolute top-[5%] left-[2%]" />
-            <img src={star2} className="absolute top-[-20%] right-[2%]" />
-            <img src={star} className="absolute bottom-[-20%] left-[10%]" />
-
-            <ProductCard
-              imageSrc={legendarySneakers}
-              title="The Legendary Sneakers"
-              containerClassName="absolute top-[30%] left-[5%] md:left-[10%] w-413 z-20 pt-[100px]"
-            />
-
-            <ProductCard
-              imageSrc={coolColorways}
-              title="The Cool Colorways"
-              containerClassName="absolute top-[45%] left-1/2 -translate-x-1/2 w-413 z-20 pt-[100px]"
-            />
-
-            <ProductCard
-              imageSrc={walkingShoes}
-              title="The Best Walking Shoes"
-              containerClassName="absolute bottom-[-20%] right-[5%] md:right-[10%] w-413 z-20 pt-[100px]"
-            />
-
-            <div className="absolute top-[-10%] -right-6 z-20">
-              <div className="-rotate-15 ">
-                <img src={whiteShoes} className="" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="pt-96">
-          <div>
-            <p>new</p>
+        <section>
+          <div className="pt-36">
+            <p className="font-franchise text-8xl">top collection</p>
           </div>
         </section>
       </main>
