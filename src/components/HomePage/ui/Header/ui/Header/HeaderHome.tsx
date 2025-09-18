@@ -1,4 +1,5 @@
 import LogoSVG from "../../../../../../assets/HeaderAssets/LogoSVG/LogoSVG";
+import CustomButton from "../../../../../CustomButton/CustomButton";
 import "./HeaderHome.css";
 
 const HeaderHome = () => {
@@ -28,7 +29,15 @@ const HeaderHome = () => {
         </div>
       </div>
       <div className="start-btn-block">
-        <button className="start-btn">START</button>
+        <CustomButton
+          textButton="START"
+          fz="48px"
+          padding="20px 80px"
+          transform="rotate(-5deg)"
+          hoverTransform="rotate(-5deg) scale(1.05)"
+          transition="transform 0.2s ease"
+          border="5px solid #000"
+        />
       </div>
       <div></div>
     </header>

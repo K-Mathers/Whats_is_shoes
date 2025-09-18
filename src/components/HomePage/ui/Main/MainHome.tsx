@@ -1,5 +1,6 @@
 import React from "react";
 import "./MainHome.css";
+import CustomButton from "../../../CustomButton/CustomButton";
 
 const MainHome = () => {
   return (
@@ -48,7 +49,14 @@ const MainHome = () => {
               Sneaker of the day: discover what’s hot, what’s rare, and what’s
               next. Every day we highlight the sneakers that define the culture.
             </p>
-            <button className="main_start_btn">START</button>
+            <CustomButton
+              textButton="START"
+              fz="36px"
+              padding="15px 60px"
+              hoverTransform="rotate(-1deg) scale(1.03)"
+              transition="transform 0.2s ease"
+              border="5px solid #000"
+            />
           </div>
         </section>
 
