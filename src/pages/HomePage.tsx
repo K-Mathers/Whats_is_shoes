@@ -1,5 +1,5 @@
 import React from "react";
-import MainHome from "../components/HomePage/ui/Main/MainHome";
+import MainHome from "../components/HomePage/ui/Main/ui/MainHome";
 import HeaderHome from "../components/HomePage/ui/Header/ui/Header/HeaderHome";
 import FooterHome from "../components/HomePage/ui/Footer/FooterHome";
 
