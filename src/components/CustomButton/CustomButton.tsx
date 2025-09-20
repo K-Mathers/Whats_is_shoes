@@ -6,6 +6,8 @@ interface ICustomButton {
   height?: string;
   backgroundColor?: string;
   padding?: string;
+  fontWeight?: string;
+  fontFamily?: string;
   fz?: string;
   transform?: string;
   transition?: string;
@@ -25,6 +27,8 @@ const CustomButton: React.FC<ICustomButton> = ({
   backgroundColor = "#aa14f0",
   padding,
   fz,
+  fontWeight = "900",
+  fontFamily = "Inria Sans, sans-serif",
   transform,
   transition,
   textColor = "#fff",
@@ -44,6 +48,8 @@ const CustomButton: React.FC<ICustomButton> = ({
     backgroundColor,
     padding,
     fontSize: fz,
+    fontWeight,
+    fontFamily,
     transform: isHovered ? hoverTransform : transform,
     cursor,
     transition,

@@ -8,6 +8,9 @@ import coolColorways from "../../../../../../public/Nike_adjust1.png";
 import walkingShoes from "../../../../../../public/Nb_wrdp.png";
 import whiteShoes from "../../../../../../public/Air_max90.png";
 import CustomButton from "../../../../CustomButton/CustomButton";
+import airMax97 from "../../../../../../public/Air_max97.png";
+import spezial from "../../../../../../public/Adidas_spezial.png";
+import nb1906D from "../../../../../../public/Nb_1906D.png";
 
 const MainHome = () => {
   return (
@@ -56,14 +59,17 @@ const MainHome = () => {
               Sneaker of the day: discover what’s hot, what’s rare, and what’s
               next. Every day we highlight the sneakers that define the culture.
             </p>
-            <CustomButton
-              textButton="START"
-              fz="36px"
-              padding="15px 60px"
-              hoverTransform="rotate(-1deg) scale(1.03)"
-              transition="transform 0.2s ease"
-              border="5px solid #000"
-            />
+
+            <div className="flex ml-[0px]">
+              <CustomButton
+                textButton="START"
+                fz="29px"
+                padding="15px 60px"
+                hoverTransform="rotate(-1deg) scale(1.03)"
+                transition="transform 0.2s ease"
+                border="5px solid #000"
+              />
+            </div>
           </div>
         </section>
 
@@ -105,9 +111,40 @@ const MainHome = () => {
           </div>
         </section>
 
-        <section className="pt-96">
-          <div>
-            <p>new</p>
+        <section className="pt-96 relative">
+          <div className="flex flex-col items-center justify-center mb-36">
+            <p className="uppercase font-franchise text-[112px] leading-[110%]">
+              most popular
+            </p>
+            <p className="text-[29px] Inria Sans">
+              Here’s Our most popular articles. People tend to love whatever is
+              in here.
+            </p>
+          </div>
+
+          <div className="flex justify-center items-start gap-4 w-full p-8 relative">
+            <div className="flex-1 flex flex-col justify-center items-end max-w-[500px]">
+              <div className="font-franchise text-[68px] flex flex-col gap-4 text-left">
+                <p>PREMIUM COLLECTION</p>
+                <p className="text-[#e82e43]">BEST MINIMALS</p>
+                <p>CRAZY SHOES</p>
+                <p>NEW SHOES</p>
+              </div>
+            </div>
+
+            <img src={star} className="absolute top-[60%] left-[97.5%]" />
+
+            <div className="flex-1 flex justify-start items-center relative min-h-[600px] left-64">
+              <div className="absolute top-0 left-60 z-30">
+                <img src={airMax97} className="" />
+              </div>
+              <div className="absolute top-[5%] left-[30%] z-20">
+                <img src={spezial} className="" />
+              </div>
+              <div className="absolute top-[5%] left-[40%] z-10">
+                <img src={nb1906D} className="" />
+              </div>
+            </div>
           </div>
         </section>
       </main>
