@@ -1,49 +1,91 @@
-import LogoSVG from "../../../../assets/HeaderAssets/LogoSVG/LogoSVG";
 import "../Footer/FooterHome.css";
+
+// rewrite titels like footer-link
+// add font for WIS and others
+// more darkness 
 
 const FooterHome = () => {
   return (
-    <footer className="footer">
-      <div className="footer-left-block">
-        <div className="footer-title-block">
-          <LogoSVG width="60" height="60" />
-          <p className="footer-title">WIS</p>
+    <footer className="footer-home">
+      <div className="footer-container">
+        <div className="footer-top-section">
+          <div className="footer-text-content">
+            <p className="text-5xl font-extrabold m-0">WIS</p>
+            <p className="text-lg font-light m-0 ">
+              Discover the world of sneakers!
+            </p>
+          </div>
         </div>
 
-        <p className="footer-description">
-          Push through the pain; Every single day
-        </p>
-      </div>
-      <div className="footer-right-block">
-        <div className="links-block">
-          <h3>COMPANY</h3>
-          <a className="footer-link" href="#">
-            About
-          </a>
-          <a className="footer-link" href="#">
-            Contact us
-          </a>
-          <a className="footer-link" href="#">
-            Support
-          </a>
-          <a className="footer-link" href="#">
-            Careers
-          </a>
+        <div className="footer-link-section">
+          <div className="footer-grid-section">
+            <h3 className="footer-section-title">About us</h3>
+            <a className="footer-link" href="#">
+              Our Story
+            </a>
+            <a className="footer-link" href="#">
+              Meet the Team
+            </a>
+            <a className="footer-link" href="#">
+              Contact Us
+            </a>
+          </div>
+
+          <div className="footer-grid-section">
+            <h3 className="footer-section-title">Developers</h3>
+            <a className="footer-link" href="#">
+              API Documentation
+            </a>
+            <a className="footer-link" href="#">
+              Join Our Team
+            </a>
+            <a className="footer-link" href="#">
+              Open Source
+            </a>
+          </div>
+
+          <div className="footer-grid-section">
+            <h3 className="footer-section-title">Explore</h3>
+            <a className="footer-link" href="#">
+              Trending sneakers
+            </a>
+            <a className="footer-link" href="#">
+              Browse by style
+            </a>
+            <a className="footer-link" href="#">
+              Latest Reviews
+            </a>
+          </div>
+
+          <div className="footer-grid-section">
+            <h3 className="footer-section-title">Support</h3>
+            <a className="footer-link" href="#">
+              FAQ
+            </a>
+            <a className="footer-link" href="#">
+              Privacy Policy
+            </a>
+            <a className="footer-link" href="#">
+              Terms of Service
+            </a>
+          </div>
         </div>
-        <div className="links-block">
-          <h3>Help</h3>
-          <a className="footer-link" href="#">
-            Privacy Policy
-          </a>
-          <a className="footer-link" href="#">
-            Cookie Policy
-          </a>
-          <a className="footer-link" href="#">
-            Terms & Conditions
-          </a>
-          <a className="footer-link" href="#">
-            Share Location
-          </a>
+
+        <div className="footer-bottom-section">
+          <p className="footer-copyright">
+            © 2025 "What is shoes?". All rights reserved.
+          </p>
+          <div className="footer-socials">
+            <a href="#" className="footer-social-link">
+              Instagram
+            </a>
+            <a href="#" className="footer-social-link">
+              Twitter
+            </a>
+            <a href="#" className="footer-social-link">
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
     </footer>

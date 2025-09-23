@@ -1,4 +1,3 @@
-import React from "react";
 import "./MainHome.css";
 import CustomButton from "../../../CustomButton/CustomButton";
 
