@@ -27,7 +27,7 @@ const CustomButton: React.FC<ICustomButton> = ({
   backgroundColor = "#aa14f0",
   padding,
   fz,
-  fontWeight = "900",
+  fontWeight = "700",
   fontFamily = "Inria Sans, sans-serif",
   transform,
   transition,

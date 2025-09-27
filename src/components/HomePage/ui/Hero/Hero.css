@@ -1,0 +1,33 @@
+.link-block {
+  display: flex;
+  padding-top: 30px;
+  gap: 150px;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.routes-block {
+  display: flex;
+  gap: 30px;
+}
+
+.header-link {
+  color: #000;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+.logo-text {
+  color: #000;
+  font-family: "Passero One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+}
