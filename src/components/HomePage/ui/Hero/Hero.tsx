@@ -12,7 +12,7 @@ const Hero = () => {
         </a>
       </div>
       <div className="routes-block">
-        <a className="header-link" href="">
+        <a className="header-link" href="/">
           HOME
         </a>
         <a className="header-link" href="">

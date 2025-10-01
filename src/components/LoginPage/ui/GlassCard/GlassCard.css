@@ -1,0 +1,16 @@
+.glass-card {
+  background: rgba(23, 16, 16, 0.28);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 555px;
+  max-width: 410px;
+  margin: 0 auto;
+  padding: 40px;
+  width: 100%;
+}
