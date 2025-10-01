@@ -1,5 +1,11 @@
 .cards-section{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1240px;
+  gap: 40px;
+  /* вариант (будет скорее всего меняться) */
+  padding-bottom: 70px;
+  border-bottom: 1px solid #B3B3B3; 
 }
 
 .card{
@@ -77,3 +83,9 @@
   text-align: center;
   max-width: 250px;
 }
+
+/* .card-separator{
+  width: 1px;
+  height: 100%;
+  background-color: #B3B3B3;
+} */

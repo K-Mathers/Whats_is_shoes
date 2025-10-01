@@ -1,0 +1,30 @@
+.create-article-block{
+  display: flex;
+  flex-direction: column;
+  max-width: 404px;
+  gap: 25px;
+  /* будет меняться (наверное) */
+  padding-top: 70px;
+}
+
+.text-block{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-article-title{
+  font-weight: 400;
+  font-size: 50px;
+  text-transform: uppercase;
+  color: #000;
+  font-family: "Franchise Regular", sans-serif;
+}
+
+.create-article-description{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 155%;
+  text-align: center;
+  color: #000;
+}
