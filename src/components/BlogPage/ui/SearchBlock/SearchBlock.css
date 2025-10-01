@@ -1,0 +1,36 @@
+.search-block{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 535px;
+}
+
+.search-block-input {
+  width: 100%;
+  max-width: 535px;
+  height: 46px;
+  font-size: 20px;       
+  border: 2px solid #9f9f9f; 
+  outline: none;
+  font-family: "Franchise Regular", sans-serif;
+  padding: 15px 0px 11px 50px;
+  background-color: #e2e3e7;
+}
+
+.search-block-input::placeholder{
+  font-family: "Franchise Regular", sans-serif;
+  font-weight: 400;
+  font-size: 20px; 
+  color: #000;
+} 
+
+.search-button{
+  cursor: pointer;
+}
+
+.search-icon{
+  position: absolute;
+  top: 13px;
+  left: 20px;
+}
