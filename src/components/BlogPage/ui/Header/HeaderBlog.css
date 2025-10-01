@@ -1,0 +1,33 @@
+.blog-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+  background-color: #f05060;
+}
+
+.header-left-block{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blog-header-title{
+  font-weight: 400;
+  font-size: 35px;
+  color: #000;
+  font-family: "Passero One", sans-serif;
+}
+
+.header-right-block{
+  display: flex;
+  gap: 30px;
+}
+
+.header-right-block a{
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: -0.05em;
+  color: #000;
+  font-family: "Passero One", sans-serif;
+}
