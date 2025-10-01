@@ -14,10 +14,8 @@ const HeaderHome = () => {
           transform="rotate(-5deg)"
           hoverTransform="rotate(-5deg) scale(1.05)"
           transition="transform 0.2s ease"
-          border="5px solid #000"
         />
       </div>
-      <div></div>
     </header>
   );
 };
