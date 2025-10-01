@@ -34,7 +34,7 @@ const CustomButton: React.FC<ICustomButton> = ({
   textColor = "#fff",
   cursor = "pointer",
   boxShadow = "6px 6px 0px #ff6600",
-  border,
+  border = "5px solid rgb(0, 0, 0)",
   borderRadius = "5px",
   maxWidth = "100%",
   hoverTransform,
