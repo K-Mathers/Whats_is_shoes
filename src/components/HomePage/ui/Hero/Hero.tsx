@@ -2,9 +2,14 @@ import React from "react";
 import LogoSVG from "../../../../assets/HeaderAssets/LogoSVG/LogoSVG";
 import "./Hero.css";
 
-const Hero = () => {
+interface IHero {
+  backgroundColor?: string;
+}
+
+const Hero: React.FC<IHero> = ({ backgroundColor }) => {
+  const style = { backgroundColor };
   return (
-    <div className="link-block">
+    <div style={style} className="link-block">
       <div className="logo-block">
         <LogoSVG />
         <a className="logo-text" href="/">
