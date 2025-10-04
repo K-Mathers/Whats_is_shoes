@@ -1,14 +1,19 @@
 .link-block {
   display: flex;
   padding-top: 30px;
-  gap: 150px;
   width: 100%;
+  background-image: url("./wallpaper-skin.png");
+  /* make custom, only for homePage */
 }
 
 .logo-block {
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 3px;
+  position: relative;
+  bottom: 5px;
 }
 
 .routes-block {

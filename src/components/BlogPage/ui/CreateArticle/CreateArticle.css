@@ -1,4 +1,4 @@
-.create-article-block{
+.create-article-block {
   display: flex;
   flex-direction: column;
   max-width: 404px;
@@ -8,13 +8,13 @@
   padding-bottom: 200px;
 }
 
-.text-block{
+.text-block {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.create-article-title{
+.create-article-title {
   font-weight: 400;
   font-size: 50px;
   text-transform: uppercase;
@@ -22,10 +22,18 @@
   font-family: "Franchise Regular", sans-serif;
 }
 
-.create-article-description{
+.create-article-description {
+  font-family: "Crimson", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 155%;
   text-align: center;
   color: #000;
+  position: relative;
+}
+
+.sneaker-wrapper {
+  position: absolute;
+  top: 175%;
+  left: 0%;
 }

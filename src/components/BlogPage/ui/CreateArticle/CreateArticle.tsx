@@ -18,6 +18,10 @@ const CreateArticle = () => {
         textButton="GO!"
         hoverTransform="scale(1.05)"
       />
+
+      <div className="sneaker-wrapper">
+        <img src="/Jordan_4_blue.png" />
+      </div>
     </div>
   );
 };
