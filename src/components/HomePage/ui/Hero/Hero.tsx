@@ -23,7 +23,7 @@ const Hero: React.FC<IHero> = ({ backgroundColor }) => {
         <a className="header-link" href="/blog">
           BLOG
         </a>
-        <a className="header-link" href="">
+        <a className="header-link" href="/ai">
           AI GUIDE
         </a>
         <a className="header-link" href="/login">

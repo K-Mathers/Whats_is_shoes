@@ -7,7 +7,7 @@ import Hero from "../../components/HomePage/ui/Hero/Hero";
 const LoginPage = () => {
   return (
     <div>
-      <Hero backgroundColor="#0085FF" />
+      <Hero backgroundColor="#f05060" />
       <PageBlockWrapper>
         <AuthCard />
       </PageBlockWrapper>

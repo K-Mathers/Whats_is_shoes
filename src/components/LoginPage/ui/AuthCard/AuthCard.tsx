@@ -1,4 +1,5 @@
 import { GlassCard } from "../GlassCard/GlassCard";
+import { SocialButtons } from "../SocialButtons/SocialButtons";
 import "./AuthCard.css";
 
 const AuthCard = () => {
@@ -52,7 +53,7 @@ const AuthCard = () => {
             <div className="auth-card__social">
               <p className="auth-card__social-text">or continue with</p>
             </div>
-            {/* <SocialButtons /> */}
+            <SocialButtons />
 
             <div className="auth-card__switch">
               <span className="auth-card__switch-text">
