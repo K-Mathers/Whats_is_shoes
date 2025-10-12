@@ -1,7 +1,7 @@
 .auth-card {
   background: radial-gradient(circle at center, #f05060, #cc0a1d);
-  border-radius: 20px;
-  padding: 90px;
+  border-radius: 30px;
+  padding: 50px;
   color: #fff;
   width: 100%;
   display: flex;

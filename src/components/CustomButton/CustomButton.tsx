@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface ICustomButton {
   textButton?: React.ReactNode;
@@ -58,9 +59,13 @@ const CustomButton: React.FC<ICustomButton> = ({
     borderRadius,
     maxWidth,
   };
+
+  const navigate = useNavigate();
+  
   return (
     <div>
       <button
+        onClick={() => navigate("/login")}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={style}

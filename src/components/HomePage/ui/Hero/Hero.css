@@ -2,8 +2,6 @@
   display: flex;
   padding-top: 30px;
   width: 100%;
-  background-image: url("./wallpaper-skin.png");
-  /* make custom, only for homePage */
 }
 
 .logo-block {
