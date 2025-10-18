@@ -12,10 +12,10 @@ import airMax97 from "../../../../../../public/Air_max97.png";
 import spezial from "../../../../../../public/Adidas_spezial.png";
 import nb1906D from "../../../../../../public/Nb_1906D.png";
 
-const MainHome = () => {
+const MainHome = React.forwardRef<any>((props, ref) => {
   return (
     <>
-      <main className="min-h-screen overflow-hidden">
+      <main ref={ref} className="min-h-screen overflow-hidden">
         <section className="pt-24 pb-12 flex">
           <div className="flex justify-center items-center">
             <div className="text-center">
@@ -150,6 +150,6 @@ const MainHome = () => {
       </main>
     </>
   );
-};
+});
 
 export default MainHome;

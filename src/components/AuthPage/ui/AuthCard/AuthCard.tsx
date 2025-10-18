@@ -18,6 +18,7 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
       console.log(err);
     }
   };
+
   return (
     <div className="auth-card">
       <GlassCard>
