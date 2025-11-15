@@ -7,20 +7,20 @@ import ScrollButton from "../../components/ScrollButton/ScrollButton";
 const HomePage = () => {
   const count = useRef<HTMLDivElement | null>(null);
 
-  // change output. We need some like z-index at scroll btn  
-
   const handleScroll = () => {
     if (count.current) {
       count.current.scrollIntoView({
-        behavior: "smooth", // for test
-        block: "start", // more effecent
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
   return (
     <div>
       <HeaderHome />
-      <ScrollButton onScrollClick={handleScroll} />
+      <div className="pt-[2rem] flex justify-center">
+        <ScrollButton onScrollClick={handleScroll} />
+      </div>
       <MainHome ref={count} />
       <FooterHome />
     </div>

@@ -15,7 +15,7 @@ import nb1906D from "../../../../../../public/Nb_1906D.png";
 const MainHome = React.forwardRef<any>((props, ref) => {
   return (
     <>
-      <main ref={ref} className="min-h-screen overflow-hidden">
+      <main className="min-h-screen overflow-hidden">
         <section className="pt-24 pb-12 flex">
           <div className="flex justify-center items-center">
             <div className="text-center">
@@ -112,7 +112,10 @@ const MainHome = React.forwardRef<any>((props, ref) => {
         </section>
 
         <section className="pt-96 relative">
-          <div className="flex flex-col items-center justify-center mb-36">
+          <div
+            className="flex flex-col items-center justify-center mb-36"
+            ref={ref}
+          >
             <p className="uppercase font-franchise text-[112px] leading-[110%]">
               most popular
             </p>
