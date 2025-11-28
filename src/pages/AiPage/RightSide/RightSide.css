@@ -1,0 +1,6 @@
+.right-side-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+}

@@ -1,7 +1,6 @@
-import type React from "react";
 import type { ISVGType } from "../../types/SVGTypes";
 
-const MagnifyingGlassSVG: React.FC<ISVGType> = ({ className }) => {
+const MagnifyingGlassSVG = ({ className }: ISVGType) => {
   return (
     <svg
       className={className}

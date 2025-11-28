@@ -3,4 +3,5 @@ export interface ISVGType {
   height?: string;
   color?: string;
   className?: string;
+  fill?: string;
 }
