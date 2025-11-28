@@ -1,0 +1,40 @@
+.input-block {
+  display: flex;
+  align-items: center; 
+  max-width: 800px;
+  width: 100%;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  padding: 8px 16px; 
+}
+
+.ai-input {
+  flex-grow: 1; 
+  border: none;
+  background: none;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000; 
+  outline: none;
+  padding: 0 8px; 
+}
+
+.clip-button,
+.voice-button,
+.send-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  color: #919191;
+  transition: all 0.2 ease;
+}
+
+.right-buttons-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px; 
+}

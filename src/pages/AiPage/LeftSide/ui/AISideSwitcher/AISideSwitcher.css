@@ -1,0 +1,52 @@
+.switcher-track {
+  position: relative;
+  display: flex; 
+  background-color: #f3f3f3;
+  padding: 4px;
+  border-radius: 8px; 
+  max-width: 260px;
+  width: 100%;
+  border: 1px #767676 solid;
+}
+
+.switcher-button {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; 
+  padding: 8px 24px;
+  border: none;
+  background: transparent; 
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #767676; 
+  transition: color 0.3s ease;
+  flex: 1;
+}
+
+
+.switcher-button.is-active {
+  color: #ffffff;
+}
+
+
+.switcher-pill {
+  position: absolute;
+  z-index: 1;
+  top: 4px; 
+  bottom: 4px; 
+  left: 4px; 
+  width: calc(50% - 4px); 
+  background-color: #000000; 
+  border-radius: 6px; 
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-origin: left center;
+}
+
+
+.switcher-track.state-main .switcher-pill {
+   transform: translateX(101%); 
+}
