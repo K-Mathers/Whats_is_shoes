@@ -12,6 +12,7 @@
 .auth-card__logo {
   margin-bottom: 15px;
 }
+
 .auth-card__logo-text {
   font-weight: 500;
   font-size: 24px;
@@ -72,6 +73,7 @@
 .auth-card__forgot {
   margin-bottom: 10px;
 }
+
 .auth-card__forgot-link {
   font-weight: 400;
   font-size: 13px;
@@ -110,6 +112,7 @@
   width: 100%;
   margin: 12px 0;
 }
+
 .auth-card__social-text {
   font-weight: 500;
   font-size: 13px;
@@ -130,6 +133,7 @@
   text-align: center;
   color: #fff;
 }
+
 .auth-card__switch-link {
   font-weight: 500;
   font-size: 14px;
