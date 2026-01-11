@@ -15,7 +15,7 @@ const socialIcons = [
 
 export const SocialButtons = () => {
   return (
-    <div className="flex justify-center g-[17px] mb-[20px]">
+    <div className="flex justify-center gap-[17px] mb-[20px]">
       {socialIcons.map((icon) => (
         <a key={icon.alt}>
           <button

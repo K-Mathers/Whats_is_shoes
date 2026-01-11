@@ -5,6 +5,7 @@ import BlogPage from "./pages/BlogPage/BlogPage";
 import AiPage from "./pages/AiPage/AiPage";
 import LoginPage from "./pages/AuthPage/LoginPage";
 import RegistrationPage from "./pages/AuthPage/RegistrationPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/ai" element={<AiPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </>
   );

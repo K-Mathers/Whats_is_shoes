@@ -57,7 +57,7 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
             </div>
 
             {type === "register" && (
-              <>
+              <div className="auth-card__field">
                 <label htmlFor="confrimPassword" className="auth-card__label">
                   Confrim Password
                 </label>
@@ -67,7 +67,7 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
                   placeholder="Password"
                   className="auth-card__input"
                 />
-              </>
+              </div>
             )}
 
             {type === "login" && (
