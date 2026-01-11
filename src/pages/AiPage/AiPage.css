@@ -6,15 +6,6 @@
   background-color: #f5f5f5; 
 }
 
-.ai-sidebar-wrapper {
-  max-width: 482px;
-  width: 100%;      
-  flex-shrink: 0;   
-  height: 100%;      
-  border-right: 1px solid #e0e0e0;
-  background-color: #fafafa;
-}
-
 .ai-main-wrapper {
   flex: 1;    
   display: flex; 

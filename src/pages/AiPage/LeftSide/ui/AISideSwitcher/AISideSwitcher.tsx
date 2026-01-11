@@ -1,9 +1,12 @@
-import { useState } from "react";
 import "./AISideSwitcher.css";
 import Vector from "@/assets/AIAssets/Vector";
 
-const AISideSwitcher = () => {
-  const [activeTab, setActiveTab] = useState("main");
+interface IAISideSwitcher {
+  activeTab: string;
+  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const AISideSwitcher = ({ activeTab, setActiveTab }: IAISideSwitcher) => {
   return (
     <div className={`switcher-track state-${activeTab}`}>
       <div className="switcher-pill" />
