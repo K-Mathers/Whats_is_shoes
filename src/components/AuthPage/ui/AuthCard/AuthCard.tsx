@@ -1,21 +1,44 @@
+import { useState } from "react";
 import { GlassCard } from "../GlassCard/GlassCard";
 import { SocialButtons } from "../SocialButtons/SocialButtons";
 import "./AuthCard.css";
+import { loginUser, registrationUser } from "@/api/auth";
+import { useNavigate } from "react-router-dom";
 
 type AuthCard = {
   type: "login" | "register";
 };
 
 const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
-  const onSubmit = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+
     try {
       if (type === "login") {
-        const res = 0;
+        const data = await loginUser({ email, password });
+        console.log(data);
       } else {
-        const res = 1;
+        const data = await registrationUser({
+          email,
+          password,
+          confirmPassword,
+        });
+        console.log(data);
       }
+      setTimeout(() => {
+        navigate("/profile");
+      }, 1000);
     } catch (err) {
-      console.log(err);
+      console.error("Auth err:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -41,6 +64,9 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
                 id="email"
                 placeholder="username@gmail.com"
                 className="auth-card__input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
 
@@ -53,6 +79,9 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
                 id="password"
                 placeholder="Password"
                 className="auth-card__input"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
@@ -66,6 +95,9 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
                   id="cofrimPassword"
                   placeholder="Password"
                   className="auth-card__input"
+                  required
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
             )}
