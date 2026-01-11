@@ -6,9 +6,7 @@ import RightSide from "./RightSide/RightSide";
 const AiPage = () => {
   return (
     <div className="ai-page-layout">
-      <div className="ai-sidebar-wrapper">
-        <LeftSide />
-      </div>
+      <LeftSide />
 
       <main className="ai-main-wrapper">
         <div className="ai-header-container">
