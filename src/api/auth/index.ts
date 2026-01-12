@@ -1,12 +1,22 @@
 import api from "../api";
-import type { ILoginData, IRegistartionData } from "./types";
+import type {
+  IForgotPassData,
+  ILoginData,
+  IRegistartionData,
+  IResetPassData,
+  ISendCodeData,
+  IVerifyCodeSend,
+} from "./types";
 import { userPath } from "./userPath";
 
-// export const getUser = async () => {
-//     try {
-//         const response = await api.get(userPath.)
-//     }
-// }
+export const getUser = async () => {
+  try {
+    const response = await api.get(userPath.PROFILE);
+    return response.data;
+  } catch (err) {
+    throw err;
+  }
+};
 
 export const registrationUser = async (userData: IRegistartionData) => {
   try {
@@ -34,10 +44,34 @@ export const logoutUser = async () => {
   }
 };
 
-// export const logoutUser = async () => {
-//   try {
-//     await api.post(userPath.LOGOUT, {}, { withCredentials: true });
-//   } catch (err) {
-//     throw err;
-//   }
-// };
+export const forgotPassword = async (userData: IForgotPassData) => {
+  try {
+    await api.post(userPath.FORGOT_PASSWORD, userData);
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const resetPassword = async (userData: IResetPassData) => {
+  try {
+    await api.post(userPath.RESET_PASSWORD, userData);
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const sendCode = async (userData: ISendCodeData) => {
+  try {
+    await api.post(userPath.SEND_CODE, userData);
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const verifyCode = async (userData: IVerifyCodeSend) => {
+  try {
+    await api.post(userPath.VERIFY_CODE, userData);
+  } catch (err) {
+    throw err;
+  }
+};
