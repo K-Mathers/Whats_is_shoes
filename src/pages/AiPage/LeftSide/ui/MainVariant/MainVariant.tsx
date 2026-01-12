@@ -3,31 +3,34 @@ import { useState } from "react";
 import Arrow from "@/assets/AIAssets/Arrow";
 import OpenSidebar from "../OpenSidebar/OpenSidebar";
 
-const MainVariant = () => {
-  const [isOpenSide, setIsOpenSide] = useState<boolean>(true);
+interface IMainVariant {
+  selectedMode: string;
+  setSelectedMode: React.Dispatch<React.SetStateAction<string>>;
+}
 
-  // const sidebarClass = `sidebar-container ${!isOpenSide ? "closed" : ""}`;
+const MainVariant = ({ selectedMode, setSelectedMode }: IMainVariant) => {
+  const [isOpenSide, setIsOpenSide] = useState(true);
+
   return (
-    <div>
-      {isOpenSide ? (
-        <OpenSidebar isOpen={isOpenSide} setter={setIsOpenSide} />
-      ) : (
-        <aside className="closed-sidebar">
-          <div
-            onClick={() => setIsOpenSide(!isOpenSide)}
-            className="arrow-svg closed"
-          >
-            <Arrow />
-          </div>
+    <>
+      <div className={`sidebar-wrapper ${isOpenSide ? "open" : "closed"}`}>
+        <aside className="sidebar-aside">
+          <OpenSidebar
+            isOpen={isOpenSide}
+            selectedMode={selectedMode}
+            setter={setIsOpenSide}
+            setSelectedMode={setSelectedMode}
+          />
         </aside>
-      )}
-      {/* <aside className={sidebarClass}>
-        <OpenSidebar isOpen={isOpenSide} setter={setIsOpenSide} />
-      </aside>
-      <div onClick={() => setIsOpenSide(!isOpenSide)} className="arrow-button">
+      </div>
+
+      <button
+        className={`sidebar-trigger ${isOpenSide ? "hidden" : ""}`}
+        onClick={() => setIsOpenSide(true)}
+      >
         <Arrow />
-      </div> */}
-    </div>
+      </button>
+    </>
   );
 };
 

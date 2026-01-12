@@ -1,7 +1,11 @@
 import Arrow from "@/assets/AIAssets/Arrow";
-import type { IContent } from "../ModeContent/ModeContent";
 
-const HistoryContent = ({ isOpen, setter }: IContent) => {
+interface IHistoryContent {
+  isOpen: boolean;
+  setter: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const HistoryContent = ({ isOpen, setter }: IHistoryContent) => {
   return (
     <div>
       <p>History</p>
