@@ -1,15 +1,22 @@
 import Arrow from "@/assets/AIAssets/Arrow";
 import { AILeftSideText } from "@/const/AILeftSideConst";
-import { Typography } from "antd";
+import { Radio, Typography } from "antd";
 import "./ModeContent.css";
-import Checkbox from "@/assets/AIAssets/Checkbox";
 
 export interface IContent {
   isOpen: boolean;
+  selectedMode: string;
   setter: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedMode: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ModeContent = ({ isOpen, setter }: IContent) => {
+const ModeContent = ({
+  selectedMode,
+  isOpen,
+  setter,
+  setSelectedMode,
+}: IContent) => {
+  console.log(selectedMode);
   const { Title, Text } = Typography;
   return (
     <div className="mode-section">
@@ -24,20 +31,30 @@ const ModeContent = ({ isOpen, setter }: IContent) => {
       <Title level={4} className="section-title">
         Mode
       </Title>
-      <div className="cards-list">
-        {AILeftSideText.map((el, index) => (
-          <div key={index} className="card-block">
-            <div className="card-icon">
-              <Checkbox />
-            </div>
+      <Radio.Group
+        value={selectedMode}
+        style={{ width: "100%" }}
+        onChange={(e) => setSelectedMode(e.target.value)}
+      >
+        <div className="cards-list">
+          {AILeftSideText.map((el) => (
+            <div
+              key={el.id}
+              className="card-block"
+              onClick={() => setSelectedMode(el.mode)}
+            >
+              <div className="card-icon">
+                <Radio value={el.mode} />
+              </div>
 
-            <div className="card-content">
-              <Text className="mode-title">{el.title}</Text>
-              <Text className="mode-description">{el.descriptions}</Text>
+              <div className="card-content">
+                <Text className="mode-title">{el.title}</Text>
+                <Text className="mode-description">{el.descriptions}</Text>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Radio.Group>
     </div>
   );
 };
