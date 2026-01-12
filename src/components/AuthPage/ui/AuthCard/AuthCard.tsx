@@ -1,40 +1,61 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GlassCard } from "../GlassCard/GlassCard";
 import { SocialButtons } from "../SocialButtons/SocialButtons";
 import "./AuthCard.css";
 import { loginUser, registrationUser } from "@/api/auth";
 import { useNavigate } from "react-router-dom";
+import {
+  loginSchema,
+  registerSchema,
+  type loginSchemaType,
+  type registerSchemaType,
+} from "@/schemas/auth.schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import api from "@/api/api";
 
 type AuthCard = {
   type: "login" | "register";
 };
 
+type FormData = loginSchemaType & Partial<registerSchemaType>;
+
 const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const {
+    register: formRegister,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(type === "login" ? loginSchema : registerSchema),
+  });
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await api.get("/auth/profile");
+        navigate("/profile");
+      } catch {}
+    };
+    checkAuth();
+  }, [navigate]);
+
+  const onSubmit = async (data: FormData) => {
     setLoading(true);
 
     try {
       if (type === "login") {
-        const data = await loginUser({ email, password });
-        console.log(data);
+        await loginUser({ email: data.email, password: data.password });
       } else {
-        const data = await registrationUser({
-          email,
-          password,
-          confirmPassword,
+        await registrationUser({
+          email: data.email,
+          password: data.password,
+          confirmPassword: data.confirmPassword!,
         });
-        console.log(data);
       }
-      setTimeout(() => {
-        navigate("/profile");
-      }, 1000);
+      setTimeout(() => navigate("/profile"), 800);
     } catch (err) {
       console.error("Auth err:", err);
     } finally {
@@ -50,7 +71,7 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
             <p className="auth-card__logo-text">What Is Shoes?</p>
           </div>
 
-          <form className="auth-card__form" onSubmit={onSubmit}>
+          <form className="auth-card__form" onSubmit={handleSubmit(onSubmit)}>
             <p className="auth-card__title">
               {type === "login" ? "Login" : "Register"}
             </p>
@@ -60,14 +81,15 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
                 Email
               </label>
               <input
-                type="email"
-                id="email"
+                {...formRegister("email")}
                 placeholder="username@gmail.com"
-                className="auth-card__input"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+                className={`auth-card__input ${
+                  errors.email ? "input-error" : ""
+                }`}
               />
+              {errors.email && (
+                <span className="field-error">{errors.email.message}</span>
+              )}
             </div>
 
             <div className="auth-card__field">
@@ -76,29 +98,35 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
               </label>
               <input
                 type="password"
-                id="password"
+                {...formRegister("password")}
+                className={`auth-card__input ${
+                  errors.password ? "input-error" : ""
+                }`}
                 placeholder="Password"
-                className="auth-card__input"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
               />
+              {errors.password && (
+                <span className="field-error">{errors.password.message}</span>
+              )}
             </div>
 
             {type === "register" && (
               <div className="auth-card__field">
-                <label htmlFor="confrimPassword" className="auth-card__label">
-                  Confrim Password
+                <label htmlFor="confirmPassword" className="auth-card__label">
+                  Confirm Password
                 </label>
                 <input
                   type="password"
-                  id="cofrimPassword"
-                  placeholder="Password"
-                  className="auth-card__input"
-                  required
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  {...formRegister("confirmPassword")}
+                  className={`auth-card__input ${
+                    errors.confirmPassword ? "input-error" : ""
+                  }`}
+                  placeholder="Repeat Password"
                 />
+                {errors.confirmPassword && (
+                  <span className="field-error">
+                    {errors.confirmPassword.message}
+                  </span>
+                )}
               </div>
             )}
 
