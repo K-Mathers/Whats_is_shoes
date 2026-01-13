@@ -1,16 +1,15 @@
 import type React from "react";
-import "./MainHome.css";
 import star from "/Star_1.png";
 import star2 from "/Star_2.png";
-import ProductCard from "./ProductCard/ProductCard";
 import legendarySneakers from "/Adidas_SuperStar.png";
 import coolColorways from "/Nike_adjust1.png";
 import walkingShoes from "/Nb_wrdp.png";
 import whiteShoes from "/Air_max90.png";
-import CustomButton from "../../../../CustomButton/CustomButton";
 import airMax97 from "/Air_max97.png";
 import spezial from "/Adidas_spezial.png";
 import nb1906D from "/Nb_1906D.png";
+import CustomButton from "@/components/CustomButton/CustomButton";
+import ProductCard from "./ProductCard/ProductCard";
 
 interface IMainHome {
   ref: React.Ref<HTMLDivElement>;

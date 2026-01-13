@@ -1,16 +1,14 @@
-import FooterHome from "../../components/HomePage/ui/Footer/FooterHome";
-import Hero from "../../components/HomePage/ui/Hero/Hero";
-import { PageBlockWrapper } from "../../components/AuthPage/ui/PageBlockWrapper/PageBlockWrapper";
-import AuthCard from "../../components/AuthPage/ui/AuthCard/AuthCard";
+import Hero from "../HomePage/ui/Hero/Hero";
+import AuthCard from "./AuthCard/AuthCard";
+import { PageBlockWrapper } from "./PageBlockWrapper/PageBlockWrapper";
 
 const LoginPage = () => {
   return (
-    <div className="bg-gradient-to-br from-[#002b4e] to-[#001021] min-h-screen flex flex-col justify-between">
-      <Hero backgroundColor="#f05060" />
+    <div className="bg-gradient-to-br from-[#ffffff] to-[#001021] min-h-screen flex flex-col justify-between">
+      <Hero />
       <PageBlockWrapper>
         <AuthCard type="login" />
       </PageBlockWrapper>
-      <FooterHome />
     </div>
   );
 };

@@ -1,6 +1,7 @@
-import CustomButton from "../../../../../CustomButton/CustomButton";
-import Hero from "../../../Hero/Hero";
+import CustomButton from "@/components/CustomButton/CustomButton";
+
 import "./HeaderHome.css";
+import Hero from "../Hero/Hero";
 
 const HeaderHome = () => {
   return (

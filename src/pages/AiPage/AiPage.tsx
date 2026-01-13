@@ -1,5 +1,5 @@
+import Hero from "../HomePage/ui/Hero/Hero";
 import "./AiPage.css";
-import Hero from "../../components/HomePage/ui/Hero/Hero";
 import LeftSide from "./LeftSide/LeftSide";
 import RightSide, { type IChatMessage } from "./RightSide/RightSide";
 import { useEffect, useState } from "react";

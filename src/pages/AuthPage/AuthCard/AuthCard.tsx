@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { GlassCard } from "../GlassCard/GlassCard";
-import { SocialButtons } from "../SocialButtons/SocialButtons";
 import "./AuthCard.css";
-import { loginUser, registrationUser } from "@/api/auth";
-import { useNavigate } from "react-router-dom";
+import { getUser, loginUser, registrationUser } from "@/api/auth";
+import { Link, useNavigate } from "react-router-dom";
 import {
   loginSchema,
   registerSchema,
@@ -12,7 +11,7 @@ import {
 } from "@/schemas/auth.schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import api from "@/api/api";
+import { SocialButtons } from "../SocialButtons/SocialButtons";
 
 type AuthCard = {
   type: "login" | "register";
@@ -35,7 +34,7 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await api.get("/auth/profile");
+        await getUser();
         navigate("/profile");
       } catch {}
     };
@@ -132,9 +131,9 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
 
             {type === "login" && (
               <div className="auth-card__forgot">
-                <a href="/forgot-password" className="auth-card__forgot-link">
+                <Link to="/forgot-password" className="auth-card__forgot-link">
                   Forgot Password?
-                </a>
+                </Link>
               </div>
             )}
 
@@ -155,18 +154,18 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
                   <span className="auth-card__switch-text">
                     Don&apos;t have an account yet?{" "}
                   </span>
-                  <a href="/register" className="auth-card__switch-link">
+                  <Link to="/register" className="auth-card__switch-link">
                     Register for free
-                  </a>
+                  </Link>
                 </>
               ) : (
                 <>
                   <span className="auth-card__switch-text">
                     Already have an account?{""}
                   </span>
-                  <a href="/login" className="auth-card__switch-link">
+                  <Link to="/login" className="auth-card__switch-link">
                     Sign in
-                  </a>
+                  </Link>
                 </>
               )}
             </div>
