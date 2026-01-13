@@ -22,14 +22,15 @@ export const messageToAi = async (messageData: IMessageData) => {
 
 export const getUserSessions = async () => {
   try {
-    const response = await api.get(aiPath.SESSION);
+    const response = await api.get(aiPath.GETSESSION);
     return response.data;
   } catch (error) {
     console.error(error);
+    return [];
   }
 };
 
-export const getSpecificSessionsDetail = async (id: number) => {
+export const getSpecificSessionsDetail = async (id: string) => {
   try {
     const response = await api.get(`${aiPath.SESSION}/${id}`);
     return response.data;
@@ -38,7 +39,7 @@ export const getSpecificSessionsDetail = async (id: number) => {
   }
 };
 
-export const deleteSession = async (id: number) => {
+export const deleteSession = async (id: string) => {
   try {
     const response = await api.delete(`${aiPath.SESSION}/${id}`);
     return response.data;
@@ -47,7 +48,7 @@ export const deleteSession = async (id: number) => {
   }
 };
 
-export const renameSession = async (id: number, title: string) => {
+export const renameSession = async (id: string, title: string) => {
   try {
     const response = await api.patch(`${aiPath.SESSION}/${id}`, title);
     return response.data;

@@ -1,7 +1,7 @@
-import Arrow from "@/assets/AIAssets/Arrow";
 import { AILeftSideText } from "@/const/AILeftSideConst";
 import { Radio, Typography } from "antd";
 import "./ModeContent.css";
+import { SidebarHeader } from "../SidebarHeader/SidebarHeader";
 
 export interface IContent {
   isOpen: boolean;
@@ -16,21 +16,15 @@ const ModeContent = ({
   setter,
   setSelectedMode,
 }: IContent) => {
-  console.log(selectedMode);
-  const { Title, Text } = Typography;
+  const { Text } = Typography;
   return (
     <div className="mode-section">
-      <div className="title-block">
-        <Title level={2} className="main-title">
-          Main
-        </Title>
-        <div onClick={() => setter(!isOpen)} className="arrow-svg">
-          <Arrow />
-        </div>
-      </div>
-      <Title level={4} className="section-title">
-        Mode
-      </Title>
+      <SidebarHeader
+        title="Main"
+        subtitle="Main"
+        isOpen={isOpen}
+        setter={setter}
+      />
       <Radio.Group
         value={selectedMode}
         style={{ width: "100%" }}

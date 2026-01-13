@@ -2,47 +2,62 @@ import Clip from "@/assets/AIAssets/Clip";
 import "./AIInput.css";
 import Send from "@/assets/AIAssets/Send";
 import { useState } from "react";
-import type { IMessageData } from "@/api/ai/types";
 import { messageToAi, newChatSession } from "@/api/ai";
+import type { IChatMessage } from "../../RightSide";
+import { useNavigate } from "react-router-dom";
 
 interface IAIInput {
-  answers: string[];
+  sessionIdNow: string | undefined;
   selectedMode: string;
-  setAnswers: React.Dispatch<React.SetStateAction<string[]>>;
-  setSelectedMode: React.Dispatch<React.SetStateAction<string>>;
+  setIsTyping: React.Dispatch<React.SetStateAction<boolean>>;
+  setMessages: React.Dispatch<React.SetStateAction<IChatMessage[]>>;
 }
 
 const AIInput = ({
+  sessionIdNow,
   selectedMode,
-  answers,
-  setSelectedMode,
-  setAnswers,
+  setIsTyping,
+  setMessages,
 }: IAIInput) => {
   const [userMessage, setUserMessage] = useState("");
+  const navigate = useNavigate();
+
   const sendMessage = async () => {
+    if (!userMessage.trim()) return;
+
+    const currentMessages = userMessage;
+    setUserMessage("");
+    setMessages((prev) => [...prev, { role: "USER", text: currentMessages }]);
     try {
-      let uuId = "";
-      const updateSession = async () => {
-        try {
-          const data = await newChatSession({ mode: selectedMode });
-          return data.sessionId;
-        } catch (error) {
-          console.error(error);
-          return "";
-        }
-      };
-      uuId = await updateSession();
-      const formatedData: IMessageData = {
-        sessionId: uuId,
-        userText: userMessage,
-      };
-      const messageResponse = await messageToAi(formatedData);
-      setAnswers((prev) => [...prev, messageResponse.answer]);
-      setUserMessage("");
-      console.log("Ответ от ИИ получен:", messageResponse);
+      setIsTyping(true);
+      let currentSessionId = sessionIdNow;
+
+      if (!sessionIdNow) {
+        const data = await newChatSession({ mode: selectedMode });
+        currentSessionId = data.sessionId;
+        navigate(`/ai/${currentSessionId}`, { replace: true });
+      }
+
+      const messageResponse = await messageToAi({
+        sessionId: currentSessionId as string,
+        userText: currentMessages,
+      });
+
+      if (messageResponse?.answer) {
+        setMessages((prev) => [
+          ...prev,
+          { role: "ASSISTANT", text: messageResponse.answer },
+        ]);
+      }
     } catch (error) {
-      console.error("Ошибка при отправке сообщения:", error);
+      console.error(error);
+    } finally {
+      setIsTyping(false);
     }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") sendMessage();
   };
 
   return (
@@ -51,10 +66,12 @@ const AIInput = ({
         <Clip />
       </button>
       <input
+        onKeyDown={handleKeyDown}
         onChange={(e) => setUserMessage(e.target.value)}
         className="ai-input"
         placeholder="Send a message"
         type="text"
+        value={userMessage}
       />
       <div className="right-buttons-wrapper">
         <button onClick={sendMessage} className="send-button">
