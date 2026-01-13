@@ -1,0 +1,20 @@
+.title-block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-title {
+  margin-bottom: 32px ;
+  font-weight: 600 ;
+}
+
+.arrow-svg{
+  margin: 0;
+  cursor: pointer;
+}
+
+.section-title {
+  margin-bottom: 16px ;
+  font-weight: 500;
+}

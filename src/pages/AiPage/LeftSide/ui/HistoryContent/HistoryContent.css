@@ -1,0 +1,18 @@
+.history-section{
+  width: 100%;
+}
+
+.user-history{
+  overflow-y: auto;
+  max-height: 700px;
+}
+
+.session{
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.session:hover{
+  background-color: #e5e7eb;
+}
