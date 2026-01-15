@@ -4,6 +4,7 @@ import OpenSidebar from "./ui/OpenSidebar/OpenSidebar";
 import { useState } from "react";
 
 interface ILeftSide {
+  sessionId: string | undefined;
   selectedMode: string;
   setSelectedMode: React.Dispatch<React.SetStateAction<string>>;
 }

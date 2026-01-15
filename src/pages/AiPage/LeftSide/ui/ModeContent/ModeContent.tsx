@@ -19,12 +19,7 @@ const ModeContent = ({
   const { Text } = Typography;
   return (
     <div className="mode-section">
-      <SidebarHeader
-        title="Main"
-        subtitle="Main"
-        isOpen={isOpen}
-        setter={setter}
-      />
+      <SidebarHeader title="Main" isOpen={isOpen} setter={setter} />
       <Radio.Group
         value={selectedMode}
         style={{ width: "100%" }}
