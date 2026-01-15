@@ -7,12 +7,48 @@
   max-height: 700px;
 }
 
+.session-title {
+  flex-grow: 1; 
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.dots-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  flex-shrink: 0; 
+}
+
+.dots-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.05); 
+}
+
 .session{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px 12px;
+  gap: 8px;
   border-radius: 10px;
 }
 
 .session:hover{
   background-color: #e5e7eb;
+}
+
+.session img{
+  flex-shrink: 0;      
+  display: block;
+  width: 16px;        
+  height: 16px;
+  margin: 0;
 }

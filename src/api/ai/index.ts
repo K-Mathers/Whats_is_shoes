@@ -40,15 +40,10 @@ export const getSpecificSessionsDetail = async (id: string) => {
 };
 
 export const deleteSession = async (id: string) => {
-  try {
-    const response = await api.delete(`${aiPath.SESSION}/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+  await api.delete(`${aiPath.SESSION}/${id}`);
 };
 
-export const renameSession = async (id: string, title: string) => {
+export const renameSession = async (id: string, title: { title: string }) => {
   try {
     const response = await api.patch(`${aiPath.SESSION}/${id}`, title);
     return response.data;

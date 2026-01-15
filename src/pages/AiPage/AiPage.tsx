@@ -31,7 +31,11 @@ const AiPage = () => {
 
   return (
     <div className="ai-page-layout">
-      <LeftSide selectedMode={selectedMode} setSelectedMode={setSelectedMode} />
+      <LeftSide
+        sessionId={sessionId}
+        selectedMode={selectedMode}
+        setSelectedMode={setSelectedMode}
+      />
 
       <main className="ai-main-wrapper">
         <div className="ai-header-container">

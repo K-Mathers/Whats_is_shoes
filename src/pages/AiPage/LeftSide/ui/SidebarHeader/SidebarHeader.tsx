@@ -2,20 +2,16 @@ import Arrow from "@/assets/AIAssets/Arrow";
 import { Typography } from "antd";
 import React from "react";
 import "./SidebarHeader.css";
+import { useNavigate } from "react-router-dom";
 
 interface ISidebarHeader {
   title: string;
-  subtitle: string;
   isOpen: boolean;
   setter: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const SidebarHeader = ({
-  title,
-  subtitle,
-  isOpen,
-  setter,
-}: ISidebarHeader) => {
+export const SidebarHeader = ({ title, isOpen, setter }: ISidebarHeader) => {
+  const navigation = useNavigate();
   const { Title } = Typography;
   return (
     <div>
@@ -27,8 +23,12 @@ export const SidebarHeader = ({
           <Arrow />
         </div>
       </div>
-      <Title level={4} className="section-title">
-        {subtitle}
+      <Title
+        onClick={() => navigation("/ai")}
+        level={4}
+        className="section-title"
+      >
+        New Chat
       </Title>
     </div>
   );
