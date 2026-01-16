@@ -1,7 +1,7 @@
 import AIInput from "./ui/AIInput/AIInput";
 import ChatBotPrewiew from "./ui/ChatBotPrewie/ChatBotPreview";
 import "./RightSide.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 interface IRightSide {
   sessionId: string | undefined;
@@ -22,6 +22,14 @@ const RightSide = ({
   setMessages,
 }: IRightSide) => {
   const [isTyping, setIsTyping] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages, isTyping]);
+
   return (
     <div className="right-side-block">
       {messages.length === 0 ? (
@@ -57,6 +65,7 @@ const RightSide = ({
         selectedMode={selectedMode}
         setIsTyping={setIsTyping}
         setMessages={setMessages}
+        messages={messages}
       />
     </div>
   );

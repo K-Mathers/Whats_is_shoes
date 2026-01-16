@@ -1,34 +1,55 @@
-import React from "react";
-import LogoSVG from "../../../../assets/HeaderAssets/LogoSVG/LogoSVG";
+import React, { useEffect, useState } from "react";
 import "./Hero.css";
+import { Link } from "react-router-dom";
+import LogoSVG from "@/assets/HeaderAssets/LogoSVG/LogoSVG";
+import { getUser } from "@/api/auth";
 
 interface IHero {
   backgroundColor?: string;
 }
 
 const Hero: React.FC<IHero> = ({ backgroundColor }) => {
-  const style = { backgroundColor };
+  const [isUserExist, setIsUserExist] = useState(null);
+
+  useEffect(() => {
+    const userData = async () => {
+      try {
+        const response = await getUser();
+        setIsUserExist(response);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    userData();
+  }, []);
+
   return (
-    <div style={style} className="link-block">
+    <div className={`link-block ${backgroundColor}`}>
       <div className="logo-block">
         <LogoSVG />
-        <a className="logo-text" href="/">
+        <Link className="logo-text" to="/">
           WIS
-        </a>
+        </Link>
       </div>
       <div className="routes-block">
-        <a className="header-link" href="/">
+        <Link className="header-link" to="/">
           HOME
-        </a>
-        <a className="header-link" href="/blog">
+        </Link>
+        <Link className="header-link" to="/blog">
           BLOG
-        </a>
-        <a className="header-link" href="/ai">
+        </Link>
+        <Link className="header-link" to="/ai">
           AI GUIDE
-        </a>
-        <a className="header-link" href="/login">
-          LOGIN
-        </a>
+        </Link>
+        {isUserExist ? (
+          <Link className="header-link" to="/profile">
+            PROFILE
+          </Link>
+        ) : (
+          <Link className="header-link" to="/login">
+            LOGIN
+          </Link>
+        )}
       </div>
     </div>
   );

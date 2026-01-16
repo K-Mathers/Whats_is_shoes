@@ -9,13 +9,11 @@
 }
 
 .AI-title{
-  font-weight: 600;
   font-size: 40px;
   color: #000;
 }
 
 .AI-description{
-  font-weight: 400;
   font-size: 16px;
   line-height: 125%;
   color: #919191;
@@ -57,15 +55,67 @@
 }
 
 .first-block-title{
-  font-weight: 500;
   font-size: 18px;
   color: #000;
 }
 .first-block-description{
-  font-weight: 400;
   font-size: 14px;
   line-height: 139%;
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #919191;
+}
+
+@media (max-width: 410px) {
+    .all-block {
+        gap: 24px;
+        padding: 20px 10px;
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .AI-title-block {
+        flex-shrink: 0;
+    }
+
+    .AI-title {
+        font-size: 28px;
+    }
+
+    .AI-description {
+        font-size: 14px;
+    }
+
+    .all-notification {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .notification-element {
+        width: 100%;
+        max-width: 100%;
+        gap: 12px;
+    }
+
+    .notification-block-wrapper {
+        max-width: 100%;
+        width: 100%;
+        padding: 16px 18px;
+        gap: 10px;
+    }
+
+    .icon-block {
+        max-width: 40px;
+        padding: 10px;
+    }
+
+    .first-block-title {
+        font-size: 16px;
+    }
+
+    .first-block-description {
+        font-size: 12px;
+    }
 }

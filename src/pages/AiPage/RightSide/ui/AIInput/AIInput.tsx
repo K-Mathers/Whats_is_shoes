@@ -2,15 +2,17 @@ import Clip from "@/assets/AIAssets/Clip";
 import "./AIInput.css";
 import Send from "@/assets/AIAssets/Send";
 import { useRef, useState } from "react";
-import { messageToAi, newChatSession, uploadImage } from "@/api/ai";
+import { newChatSession, uploadImage } from "@/api/ai";
 import type { IChatMessage } from "../../RightSide";
 import { useNavigate } from "react-router-dom";
+import { aiPath } from "@/api/ai/aiPath";
 
 interface IAIInput {
   sessionIdNow: string | undefined;
   selectedMode: string;
   setIsTyping: React.Dispatch<React.SetStateAction<boolean>>;
   setMessages: React.Dispatch<React.SetStateAction<IChatMessage[]>>;
+  messages: IChatMessage[];
 }
 
 const AIInput = ({
@@ -18,6 +20,7 @@ const AIInput = ({
   selectedMode,
   setIsTyping,
   setMessages,
+  messages,
 }: IAIInput) => {
   const [userMessage, setUserMessage] = useState("");
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -30,45 +33,86 @@ const AIInput = ({
     if (!userMessage.trim()) return;
 
     const currentMessages = userMessage;
-    // const fileToUpload = selectedImage;
 
     handleRemoveImage();
     setUserMessage("");
 
-    setMessages((prev) => [...prev, { role: "USER", text: currentMessages }]);
+    const currentMsgs: IChatMessage[] = [
+      ...messages,
+      { role: "USER", text: currentMessages },
+      { role: "ASSISTANT", text: "" },
+    ];
+
+    setMessages(currentMsgs);
 
     try {
       setIsTyping(true);
       let currentSessionId = sessionIdNow;
-      // let serverImageUrl = undefined;
-
-      // if (fileToUpload) {
-      //   try {
-      //     const uploadRes = await uploadImage(fileToUpload);
-      //     serverImageUrl = uploadRes.data.imageUrl;
-      //     console.log("Image uploaded:", serverImageUrl);
-      //   } catch (error) {
-      //     console.error(error);
-      //   }
-      // }
 
       if (!sessionIdNow) {
         const data = await newChatSession({ mode: selectedMode });
         currentSessionId = data.sessionId;
-        navigate(`/ai/${currentSessionId}`, { replace: true });
+        navigate(`/ai/${currentSessionId}`, {
+          replace: true,
+          state: { preserveMessages: currentMsgs },
+        });
       }
 
-      const messageResponse = await messageToAi({
-        sessionId: currentSessionId as string,
-        userText: currentMessages,
-        // imageUrl: currentImage,
+      const serverImage = await uploadImage(selectedImage);
+      const messageResponse = await fetch(aiPath.FETCHMESSAGE, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          sessionId: currentSessionId,
+          userText: currentMessages,
+          imageUrl: serverImage.imageUrl,
+          stream: true,
+        }),
+        credentials: "include",
       });
 
-      if (messageResponse?.answer) {
-        setMessages((prev) => [
-          ...prev,
-          { role: "ASSISTANT", text: messageResponse.answer },
-        ]);
+      if (!messageResponse.ok) throw new Error("Ошибка сервера");
+      if (!messageResponse.body) return;
+
+      const reader = messageResponse.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulatedText = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        const lines = chunk.split("\n");
+
+        for (const line of lines) {
+          const trimmedLine = line.trim();
+          if (!trimmedLine || !trimmedLine.startsWith("data:")) continue;
+
+          try {
+            const jsonString = trimmedLine.replace("data:", "").trim();
+            const parsed = JSON.parse(jsonString);
+            const content = parsed.content || "";
+            accumulatedText += content;
+
+            setMessages((prev) => {
+              const lastMessage = prev[prev.length - 1];
+
+              if (lastMessage && lastMessage.role === "ASSISTANT") {
+                return [
+                  ...prev.slice(0, -1),
+                  { ...lastMessage, text: accumulatedText },
+                ];
+              }
+
+              return [...prev, { role: "ASSISTANT", text: accumulatedText }];
+            });
+          } catch (e) {
+            console.error("Ошибка парсинга чанка:", e);
+          }
+        }
       }
     } catch (error) {
       console.error(error);

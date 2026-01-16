@@ -1,6 +1,6 @@
 import { ChatBotPreview } from "@/const/ChatBotPreview";
 import { Typography } from "antd";
-import "./ChatBotPreview.css";
+import "./ChatBotPrewie.css";
 
 const ChatBotPrewiew = () => {
   return (
