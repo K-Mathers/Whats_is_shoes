@@ -1,9 +1,5 @@
 import "../Footer/FooterHome.css";
 
-// rewrite titels like footer-link
-// add font for WIS and others
-// more darkness 
-
 const FooterHome = () => {
   return (
     <footer className="footer-home">
@@ -73,7 +69,7 @@ const FooterHome = () => {
 
         <div className="footer-bottom-section">
           <p className="footer-copyright">
-            © 2025 "What is shoes?". All rights reserved.
+            © "What is shoes?". All rights reserved.
           </p>
           <div className="footer-socials">
             <a href="#" className="footer-social-link">

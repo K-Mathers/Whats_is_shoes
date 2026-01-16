@@ -1,17 +1,14 @@
-import AuthCard from "../../components/AuthPage/ui/AuthCard/AuthCard";
-import { PageBlockWrapper } from "../../components/AuthPage/ui/PageBlockWrapper/PageBlockWrapper";
-import Hero from "../../components/HomePage/ui/Hero/Hero";
-import FooterHome from "../../components/HomePage/ui/Footer/FooterHome";
-
+import { PageBlockWrapper } from "./PageBlockWrapper/PageBlockWrapper";
+import AuthCard from "./AuthCard/AuthCard";
+import Hero from "../HomePage/ui/Hero/Hero";
 
 const RegistrationPage = () => {
   return (
-    <div className="bg-gradient-to-br from-[#002b4e] to-[#001021] min-h-screen flex flex-col justify-between">
-      <Hero backgroundColor="#f05060" />
+    <div className="bg-gradient-to-br from-[#ffffff] to-[#001021] min-h-screen flex flex-col justify-between">
+      <Hero />
       <PageBlockWrapper>
         <AuthCard type="register" />
       </PageBlockWrapper>
-      <FooterHome />
     </div>
   );
 };

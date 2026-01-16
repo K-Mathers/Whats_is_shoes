@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import FooterHome from "../../components/HomePage/ui/Footer/FooterHome";
-import HeaderHome from "../../components/HomePage/ui/Header/ui/Header/HeaderHome";
-import MainHome from "../../components/HomePage/ui/Main/ui/MainHome";
-import ScrollButton from "../../components/ScrollButton/ScrollButton";
+import MainHome from "./ui/Main/MainHome";
+import ScrollButton from "@/components/ScrollButton/ScrollButton";
+import HeaderHome from "./ui/Header/HeaderHome";
+import FooterHome from "./ui/Footer/FooterHome";
 
 const HomePage = () => {
   const count = useRef<HTMLDivElement | null>(null);
