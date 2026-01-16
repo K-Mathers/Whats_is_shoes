@@ -20,6 +20,12 @@ export const messageToAi = async (messageData: IMessageData) => {
   }
 };
 
+export const uploadImage = async (file) => {
+  const data = new FormData();
+  data.append("file", file);
+  return api.post("/ai/upload", data);
+};
+
 export const getUserSessions = async () => {
   try {
     const response = await api.get(aiPath.GETSESSION);

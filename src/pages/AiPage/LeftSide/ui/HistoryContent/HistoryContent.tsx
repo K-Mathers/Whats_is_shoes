@@ -87,7 +87,7 @@ const HistoryContent = ({ isOpen, setter }: IHistoryContent) => {
 
   return (
     <div className="history-section">
-      <SidebarHeader title="History" isOpen={isOpen} setter={setter} />
+      <SidebarHeader isOpen={isOpen} setter={setter} />
       <div className="user-history">
         {userSessions.map((el) => (
           <div

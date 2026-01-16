@@ -11,18 +11,22 @@ const OpenSidebar = ({
   setSelectedMode,
 }: IContent) => {
   const [activeTab, setActiveTab] = useState<string>("main");
+
   return (
     <aside className="sidebar-container">
-      {activeTab === "main" ? (
+      <div style={{ display: activeTab === "main" ? "block" : "none" }}>
         <ModeContent
           selectedMode={selectedMode}
           isOpen={isOpen}
           setter={setter}
           setSelectedMode={setSelectedMode}
         />
-      ) : (
+      </div>
+
+      <div style={{ display: activeTab === "history" ? "block" : "none" }}>
         <HistoryContent isOpen={isOpen} setter={setter} />
-      )}
+      </div>
+
       <AISideSwitcher activeTab={activeTab} setActiveTab={setActiveTab} />
     </aside>
   );
