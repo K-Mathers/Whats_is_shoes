@@ -6,6 +6,7 @@ import AiPage from "./pages/AiPage/AiPage";
 import LoginPage from "./pages/AuthPage/LoginPage";
 import RegistrationPage from "./pages/AuthPage/RegistrationPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import AdminPage from "./pages/AdminPage/AdminPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/ai/:sessionId" element={<AiPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </>
   );

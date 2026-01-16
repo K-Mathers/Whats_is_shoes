@@ -20,10 +20,23 @@ export const messageToAi = async (messageData: IMessageData) => {
   }
 };
 
-export const uploadImage = async (file) => {
+export const uploadImage = async (file: File | null) => {
+  if (!file) return null;
+
   const data = new FormData();
   data.append("file", file);
-  return api.post("/ai/upload", data);
+
+  try {
+    const response = await api.post("/ai/upload", data, {
+      headers: {
+        "Content-Type": undefined,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Upload error details:", error);
+    throw error;
+  }
 };
 
 export const getUserSessions = async () => {
