@@ -34,7 +34,6 @@
 
 .mode-title {
   display: block;
-  font-weight: 600;
   font-size: 16px;
   color: #000;
   margin-bottom: 4px;
@@ -48,3 +47,28 @@
   color: #767676;
 }
 
+@media (max-width: 410px) {
+    .cards-list {
+        gap: 12px;
+    }
+
+    .card-block {
+        padding: 12px;
+        border-radius: 6px;
+    }
+
+    .card-icon {
+        margin-right: 10px;
+        padding-top: 1px;
+    }
+
+    .mode-title {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .mode-description {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}
