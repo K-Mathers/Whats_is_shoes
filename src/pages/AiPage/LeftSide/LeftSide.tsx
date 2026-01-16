@@ -1,4 +1,4 @@
-import Arrow from "@/assets/AIAssets/Arrow";
+import LogoSVG from "@/assets/HeaderAssets/LogoSVG/LogoSVG";
 import "./LeftSide.css";
 import OpenSidebar from "./ui/OpenSidebar/OpenSidebar";
 import { useState } from "react";
@@ -13,6 +13,12 @@ const LeftSide = ({ selectedMode, setSelectedMode }: ILeftSide) => {
   const [isOpenSide, setIsOpenSide] = useState(true);
   return (
     <>
+      <button
+        className={`sidebar-trigger ${isOpenSide ? "hidden" : ""}`}
+        onClick={() => setIsOpenSide(true)}
+      >
+        <LogoSVG />
+      </button>
       <div className={`sidebar-wrapper ${isOpenSide ? "open" : "closed"}`}>
         <aside className="sidebar-aside">
           <OpenSidebar
@@ -23,13 +29,6 @@ const LeftSide = ({ selectedMode, setSelectedMode }: ILeftSide) => {
           />
         </aside>
       </div>
-
-      <button
-        className={`sidebar-trigger ${isOpenSide ? "hidden" : ""}`}
-        onClick={() => setIsOpenSide(true)}
-      >
-        <Arrow />
-      </button>
     </>
   );
 };

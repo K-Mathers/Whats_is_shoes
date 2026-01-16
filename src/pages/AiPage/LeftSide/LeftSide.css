@@ -11,7 +11,7 @@
   height: 100%;
   background-color: #fafafa; 
   border-right: 1px solid #303030;
-  padding: 40px;
+  padding: 20px;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
@@ -25,21 +25,16 @@
 }
 
 .sidebar-trigger {
- position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 64px;
-  background: #1f1f1f;
-  border: 1px solid #303030;
-  border-left: none;
-  border-radius: 0 8px 8px 0;
-  cursor: pointer;
-  z-index: 1100;
+  position: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
+  left: 12px;
+  top: 30px;
+  width: 100%;
+  max-width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 1100;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
