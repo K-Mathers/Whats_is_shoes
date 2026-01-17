@@ -8,7 +8,7 @@ import Hero from "../HomePage/ui/Hero/Hero";
 const BlogPage = () => {
   return (
     <div className="blog-page">
-      <Hero backgroundColor="bg-gradient-to-br from-[#ffffff] to-[#001021]" />
+      <Hero />
       <SearchBlock />
       <CategorieCard />
       <CreateArticle />
