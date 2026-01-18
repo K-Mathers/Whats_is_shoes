@@ -7,6 +7,7 @@ import LoginPage from "./pages/AuthPage/LoginPage";
 import RegistrationPage from "./pages/AuthPage/RegistrationPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AdminPage from "./pages/AdminPage/AdminPage";
+import CreateBlogPage from "./pages/CreateBlogPage/CreateBlogPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/create" element={<CreateBlogPage />} />
         <Route path="/ai" element={<AiPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
