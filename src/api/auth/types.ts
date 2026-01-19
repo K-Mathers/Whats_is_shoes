@@ -20,6 +20,11 @@ export interface IResetPassData {
   confirmPassword: string;
 }
 
+export interface IChangePassData {
+  currentPassword: string;
+  newPassword: string;
+}
+
 export interface ISendCodeData {
   email: string;
 }

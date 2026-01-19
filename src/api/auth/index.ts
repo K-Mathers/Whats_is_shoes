@@ -1,5 +1,6 @@
 import api from "../api";
 import type {
+  IChangePassData,
   IForgotPassData,
   ILoginData,
   IRegistartionData,
@@ -55,6 +56,14 @@ export const forgotPassword = async (userData: IForgotPassData) => {
 export const resetPassword = async (userData: IResetPassData) => {
   try {
     await api.post(userPath.RESET_PASSWORD, userData);
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const changePassword = async (userData: IChangePassData) => {
+  try {
+    await api.post(userPath.CHANGE_PASSWORD, userData);
   } catch (err) {
     throw err;
   }
