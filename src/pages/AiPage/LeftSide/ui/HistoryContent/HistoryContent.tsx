@@ -56,26 +56,26 @@ const HistoryContent = ({ isOpen, setter }: IHistoryContent) => {
     id: string,
     currentTitle: string
   ): MenuProps["items"] => [
-    {
-      label: "Переименовать",
-      key: "rename",
-      onClick: ({ domEvent }) => {
-        domEvent.stopPropagation();
-        setSelectedSessionId(id);
-        setEditTitle(currentTitle);
+      {
+        label: "Rename",
+        key: "rename",
+        onClick: ({ domEvent }) => {
+          domEvent.stopPropagation();
+          setSelectedSessionId(id);
+          setEditTitle(currentTitle);
+        },
       },
-    },
-    { type: "divider" },
-    {
-      label: "Удалить",
-      key: "delete",
-      danger: true,
-      onClick: ({ domEvent }) => {
-        domEvent.stopPropagation();
-        handleDelete(id);
+      { type: "divider" },
+      {
+        label: "Delete",
+        key: "delete",
+        danger: true,
+        onClick: ({ domEvent }) => {
+          domEvent.stopPropagation();
+          handleDelete(id);
+        },
       },
-    },
-  ];
+    ];
 
   useEffect(() => {
     const handleGetSessions = async () => {
@@ -95,7 +95,7 @@ const HistoryContent = ({ isOpen, setter }: IHistoryContent) => {
             onClick={() =>
               selectedSessionId !== el.id && navigate(`/ai/${el.id}`)
             }
-            className="session"
+            className={`session ${sessionId === el.id ? "active" : ""}`}
           >
             {selectedSessionId === el.id ? (
               <Input
@@ -116,6 +116,7 @@ const HistoryContent = ({ isOpen, setter }: IHistoryContent) => {
                     menu={{ items: getMenuItems(el.id, el.title) }}
                     trigger={["click"]}
                     placement="bottomRight"
+                    overlayClassName="comic-dropdown"
                   >
                     <div className="dots-trigger">
                       <img

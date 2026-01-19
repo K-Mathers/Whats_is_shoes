@@ -11,17 +11,18 @@ const CreateArticle = () => {
         </p>
       </div>
       <CustomButton
-        transition="transform 0.2s ease"
-        fz="30px"
-        width="200px"
-        height="76px"
-        textButton="GO!"
-        hoverTransform="scale(1.05)"
+        transition="all 0.2s ease"
+        fz="32px"
+        width="240px"
+        height="80px"
+        textButton="CREATE NOW!"
+        hoverTransform="translate(-5px, -5px)"
+        fontFamily="'Comic Neue', cursive"
+        backgroundColor="#ffde03"
+        textColor="#000"
+        boxShadow="10px 10px 0px #000"
+        border="4px solid #000"
       />
-
-      <div className="sneaker-wrapper">
-        <img src="/Jordan_4_blue.png" />
-      </div>
     </div>
   );
 };

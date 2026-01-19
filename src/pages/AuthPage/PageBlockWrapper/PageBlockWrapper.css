@@ -1,12 +1,13 @@
 .page-block-wrapper {
   position: relative;
-  z-index: 1;
+  z-index: 20;
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .page-block-wrapper-black {
   display: flex;
@@ -15,5 +16,6 @@
   position: relative;
   width: 100%;
   max-width: 1366px;
-  height: 768px;
+  min-height: 600px;
+  padding: 20px 0;
 }

@@ -82,14 +82,18 @@ const ProfileCard = () => {
         <div className="profile-sidebar__title">PROFILE!</div>
 
         <button
-          className={`profile-sidebar__btn ${activeTab === "general" ? "profile-sidebar__btn--active" : ""}`}
+          className={`profile-sidebar__btn ${
+            activeTab === "general" ? "profile-sidebar__btn--active" : ""
+          }`}
           onClick={() => setActiveTab("general")}
         >
           General Info
         </button>
 
         <button
-          className={`profile-sidebar__btn ${activeTab === "security" ? "profile-sidebar__btn--active" : ""}`}
+          className={`profile-sidebar__btn ${
+            activeTab === "security" ? "profile-sidebar__btn--active" : ""
+          }`}
           onClick={() => setActiveTab("security")}
         >
           Security

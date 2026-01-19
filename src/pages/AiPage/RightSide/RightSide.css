@@ -1,4 +1,4 @@
-.right-side-block{
+.right-side-block {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -10,108 +10,30 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 20px;
-  height: calc(100vh - 150px); 
+  gap: 24px;
+  padding: 30px;
   overflow-y: auto;
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
-  max-height: 520px;
   scroll-behavior: smooth;
+  z-index: 5;
+  height: 100%;
+  min-height: 0;
 }
 
-.message-bubble {
-  max-width: 80%;
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: normal;
-  white-space: pre-wrap;
-}
 
-.user-msg {
-  align-self: flex-end;
-  background-color: #2f2f2f;
-  color: #ffffff;
-  border-bottom-right-radius: 2px;
-}
-
-.ai-msg {
-  align-self: flex-start;
-  background-color: transparent;
-  color: black;
-  border-bottom-left-radius: 2px;
-}
-
-.typing-indicator {
-  align-self: flex-start;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 12px 16px;
-  background: #2f2f2f; 
-  border-radius: 12px;
-  width: fit-content;
-  margin-top: 10px;
-}
-
-.typing-indicator span {
-  width: 8px;
-  height: 8px;
-  background-color: #8e8e8e;
-  border-radius: 50%;
-  display: inline-block;
-  animation: pulse 1.2s infinite ease-in-out;
-}
-
-.typing-indicator span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.typing-indicator span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.ai-msg p {
-  margin: 0;
-}
-.ai-msg ul {
-  margin: 10px 0;
-  padding-left: 20px;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(0.6);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.2); 
-    opacity: 1;            
-  }
-}
-
-@media (max-width: 480px) {
-  .message-bubble {
-    max-width: 95%;
-  }
-  
-  .ai-header-container {
-    display: none; 
-  }
-}
-
-@media (max-width: 410px) {
+@media (max-width: 700px) {
   .right-side-block {
     width: 100%;
     justify-content: flex-start;
     padding-bottom: 0;
     position: relative;
+    height: 100%;
     min-height: 0;
   }
 
-  .right-side-block > :first-child {
+  .right-side-block> :first-child {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
@@ -121,8 +43,16 @@
     padding: 10px 8px;
     gap: 8px;
     max-width: 100%;
-    height: calc(100vh - 140px);
-    max-height: calc(100vh - 140px);
+    height: auto;
+    max-height: none;
+    flex: 1;
+  }
+
+  .ai-header-container {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 50;
   }
 
   .message-bubble {
@@ -161,8 +91,85 @@
     margin: 0 0 4px 0;
     word-wrap: break-word;
   }
+}
 
-  .ai-header-container {
-    display: none;
+.message-bubble {
+  max-width: 80%;
+  padding: 15px 20px;
+  border: 3px solid #000000;
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  filter: drop-shadow(4px 4px 0 #000000);
+  font-family: 'Comic Neue', cursive;
+}
+
+.user-msg {
+  align-self: flex-end;
+  background-color: #ffde03;
+  color: #000;
+  border-radius: 20px 20px 0 20px;
+  transform: rotate(1deg);
+}
+
+.ai-msg {
+  align-self: flex-start;
+  background-color: #fff;
+  color: #000;
+  border-radius: 20px 20px 20px 0;
+  transform: rotate(-1deg);
+}
+
+.typing-indicator {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: #fff;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  width: fit-content;
+  margin-top: 10px;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background-color: #8e8e8e;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.ai-msg p {
+  margin: 0;
+}
+
+.ai-msg ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
   }
 }

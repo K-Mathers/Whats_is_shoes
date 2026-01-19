@@ -14,7 +14,10 @@ const OpenSidebar = ({
 
   return (
     <aside className="sidebar-container">
-      <div style={{ display: activeTab === "main" ? "block" : "none" }}>
+      <div
+        className="sidebar-content-wrapper"
+        style={{ display: activeTab === "main" ? "block" : "none" }}
+      >
         <ModeContent
           selectedMode={selectedMode}
           isOpen={isOpen}
@@ -23,7 +26,10 @@ const OpenSidebar = ({
         />
       </div>
 
-      <div style={{ display: activeTab === "history" ? "block" : "none" }}>
+      <div
+        className="sidebar-content-wrapper"
+        style={{ display: activeTab === "history" ? "block" : "none" }}
+      >
         <HistoryContent isOpen={isOpen} setter={setter} />
       </div>
 

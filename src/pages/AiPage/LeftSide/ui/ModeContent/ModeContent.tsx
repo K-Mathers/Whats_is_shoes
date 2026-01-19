@@ -29,7 +29,7 @@ const ModeContent = ({
           {AILeftSideText.map((el) => (
             <div
               key={el.id}
-              className="card-block"
+              className={`card-block ${selectedMode === el.mode ? "selected" : ""}`}
               onClick={() => setSelectedMode(el.mode)}
             >
               <div className="card-icon">

@@ -3,25 +3,50 @@
     left: 0;
     top: 0;
     height: 100vh;
-    z-index: 1000;
+    z-index: 2000;
+    transition: visibility 0.4s;
+    pointer-events: none;
+}
+
+.sidebar-wrapper.closed {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.sidebar-wrapper.open {
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .sidebar-aside {
     width: 310px;
     height: 100%;
-    background-color: #fafafa;
-    border-right: 1px solid #303030;
+    background-color: #3498db;
+    border-right: 3px solid #000000;
     padding: 20px;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
+    box-shadow: 4px 0 0 #000000;
+    position: relative;
+    z-index: 1001;
+    pointer-events: auto;
 }
 
-.sidebar-wrapper.closed {
+.sidebar-aside::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 10px 10px;
     pointer-events: none;
 }
 
 .sidebar-wrapper.closed .sidebar-aside {
-    transform: translateX(-100%);
+    transform: translateX(-105%);
 }
 
 .sidebar-wrapper.open .sidebar-aside {
@@ -32,30 +57,40 @@
     position: fixed;
     display: flex;
     align-items: center;
+    justify-content: center;
     left: 12px;
-    top: 30px;
-    width: 100%;
-    max-width: 30px;
-    height: 30px;
+    top: 86px;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
     z-index: 1100;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: all 0.2s ease;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 4px;
+    box-shadow: 3px 3px 0 #000;
+    padding: 5px;
+}
+
+.sidebar-trigger:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+}
+
+.sidebar-trigger:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 #000;
+}
+
+.sidebar-trigger svg {
+    width: 28px;
+    height: 28px;
 }
 
 .sidebar-trigger.hidden {
     opacity: 0;
     pointer-events: none;
     transform: translate(-10px, -50%);
-}
-
-.sidebar-wrapper.open .sidebar-trigger {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-20px);
-}
-
-.sidebar-wrapper.closed .sidebar-trigger {
-    opacity: 1;
 }
 
 .arrow-icon {
@@ -73,49 +108,63 @@
     opacity: 0;
 }
 
-@media (max-width: 768px) {
-    .sidebar-aside {
-        width: 280px;
-        box-shadow: 10px 0 15px rgba(0, 0, 0, 0.1);
-    }
+@media (max-width: 700px) {
 
     .sidebar-wrapper.open {
         width: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(2px);
-    }
-}
-
-@media (max-width: 410px) {
-    .sidebar-aside {
-        width: 100%;
-        max-width: 410px;
-        padding: 15px;
-    }
-
-    .sidebar-wrapper.open {
-        width: 100%;
+        height: 100vh;
         background: rgba(0, 0, 0, 0.5);
-        pointer-events: auto;
+        backdrop-filter: blur(4px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .sidebar-wrapper.closed {
-        pointer-events: none;
-        width: 0;
-        height: 0;
+
+    .sidebar-aside {
+        width: 100%;
+        max-width: 350px;
+        height: 85%;
+        max-height: 800px;
+        border-right: 3px solid #000;
+        border-left: 3px solid #000;
+        border-top: 3px solid #000;
+        border-bottom: 3px solid #000;
+        border-radius: 8px;
+        box-shadow: 8px 8px 0 #000;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .sidebar-inner-content {
+        overflow-y: auto;
+        flex: 1;
+        padding-right: 5px;
     }
 
     .sidebar-wrapper.closed .sidebar-aside {
-        pointer-events: none;
+        transform: translateY(110vh);
+    }
+
+    .sidebar-wrapper.open .sidebar-aside {
+        transform: translateY(0);
     }
 
     .sidebar-trigger {
+        position: fixed;
         left: 10px;
-        top: 20px;
+        top: 140px;
+        bottom: auto;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        z-index: 2100;
+        box-shadow: 3px 3px 0 #000;
+    }
+
+    .sidebar-trigger svg {
         width: 28px;
         height: 28px;
-        max-width: 28px;
-        pointer-events: auto;
-        z-index: 1100;
     }
 }

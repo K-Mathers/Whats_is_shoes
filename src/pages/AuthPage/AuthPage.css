@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+
+.auth-page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fdfbf1;
+    background-image: radial-gradient(#000000 1.2px, transparent 1.2px);
+    background-size: 20px 20px;
+    font-family: 'Comic Neue', cursive;
+    overflow-x: hidden;
+}
+
+.auth-header-wrapper {
+    width: 100%;
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.auth-content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+.comic-decoration {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+    filter: contrast(1.1) brightness(1.1);
+}
+
+.decor-top-left {
+    width: 320px;
+    left: 8%;
+    top: 15%;
+    animation: float1 8s ease-in-out infinite;
+}
+
+.decor-bottom-left {
+    width: 260px;
+    left: 6%;
+    bottom: 18%;
+    animation: float3 7s ease-in-out infinite;
+}
+
+.decor-top-right {
+    width: 380px;
+    right: 8%;
+    top: 18%;
+    animation: float1 9s ease-in-out infinite reverse;
+}
+
+.decor-bottom-right {
+    width: 340px;
+    right: 10%;
+    bottom: 10%;
+    animation: float2 10s ease-in-out infinite;
+}
+
+.auth-header-wrapper .link-block {
+    background: #ffde03;
+    padding: 12px 40px;
+    width: 100vw;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    position: relative;
+}
+
+.auth-header-wrapper .logo-text,
+.auth-header-wrapper .header-link {
+    font-size: 20px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: 'Comic Neue', cursive;
+    text-decoration: none;
+}
+
+
+.auth-header-wrapper .header-link:hover {
+    color: #e74c3c;
+}
+
+@media (max-width: 1400px) {
+    .decor-top-left {
+        width: 220px;
+        left: 2%;
+    }
+
+    .decor-bottom-left {
+        width: 180px;
+        left: 2%;
+    }
+
+    .decor-top-right {
+        width: 260px;
+        right: 2%;
+    }
+
+    .decor-bottom-right {
+        width: 200px;
+        right: 2%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .comic-decoration {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 850px) {
+    .comic-decoration {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .auth-header-wrapper .link-block {
+        flex-direction: column;
+        padding: 15px 10px;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
+
+
+
+@keyframes float1 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-15deg);
+    }
+
+    50% {
+        transform: translateY(-40px) rotate(-5deg);
+    }
+}
+
+@keyframes float2 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(15deg);
+    }
+
+    50% {
+        transform: translateY(40px) rotate(25deg);
+    }
+}
+
+@keyframes float3 {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(10deg);
+    }
+
+    50% {
+        transform: scale(1.15) rotate(20deg);
+    }
+}
