@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+
+.home-page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fdfbf1;
+    background-image: radial-gradient(#000000 1.2px, transparent 1.2px);
+    background-size: 20px 20px;
+    font-family: 'Comic Neue', cursive;
+    overflow-x: hidden;
+}
+
+.home-content-wrapper {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.scroll-btn-wrapper {
+    position: relative;
+    z-index: 5;
+}
+
+.comic-decoration {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+    filter: contrast(1.1) brightness(1.1);
+}
+
+.decor-top-left {
+    width: 320px;
+    left: 2%;
+    top: 15%;
+    animation: float1 8s ease-in-out infinite;
+}
+
+.decor-top-right {
+    width: 380px;
+    right: 2%;
+    top: 12%;
+    animation: float1 9s ease-in-out infinite reverse;
+}
+
+.decor-bottom-left {
+    width: 260px;
+    left: 3%;
+    bottom: 15%;
+    animation: float3 7s ease-in-out infinite;
+}
+
+.decor-bottom-right {
+    width: 340px;
+    right: 4%;
+    bottom: 12%;
+    animation: float2 10s ease-in-out infinite;
+}
+
+@keyframes float1 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-15deg);
+    }
+
+    50% {
+        transform: translateY(-40px) rotate(-5deg);
+    }
+}
+
+@keyframes float2 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(15deg);
+    }
+
+    50% {
+        transform: translateY(40px) rotate(25deg);
+    }
+}
+
+@keyframes float3 {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(10deg);
+    }
+
+    50% {
+        transform: scale(1.15) rotate(20deg);
+    }
+}
+
+@media (max-width: 1200px) {
+    .comic-decoration {
+        width: 200px;
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 850px) {
+    .comic-decoration {
+        display: none;
+    }
+}

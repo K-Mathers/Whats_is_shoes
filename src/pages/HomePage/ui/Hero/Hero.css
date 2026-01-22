@@ -1,7 +1,13 @@
 .link-block {
   display: flex;
-  padding-top: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
   width: 100%;
+  background: #ffde03;
+  border-bottom: 4px solid #000;
+  box-sizing: border-box;
+  font-family: 'Comic Neue', cursive;
 }
 
 .logo-block {
@@ -9,9 +15,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 3px;
+  gap: 8px;
   position: relative;
-  bottom: 5px;
 }
 
 .routes-block {
@@ -22,12 +27,12 @@
 .header-link {
   position: relative;
   color: #000;
-  font-family: "Inria Sans", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  letter-spacing: -0.05em;
+  font-family: 'Comic Neue', cursive;
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
   text-decoration: none;
-  height: 20px;
+  transition: color 0.2s ease;
 }
 
 .header-link::after {

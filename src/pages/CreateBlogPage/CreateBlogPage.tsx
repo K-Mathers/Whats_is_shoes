@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import "./CreateBlogPage.css";
+import Hero from "../HomePage/ui/Hero/Hero";
 import { uploadImage } from "@/api/ai";
 import { createBlog } from "@/api/blog";
 import type { IBlogJSON } from "@/api/blog/types";
@@ -97,7 +98,8 @@ const CreateBlogPage = () => {
 
   return (
     <div className="comic-page-wrapper">
-      <div className="comic-form-container">
+      <Hero />
+      <div className="comic-form-container mt-12">
         <div className="comic-badge-top">NEW POST</div>
 
         <header className="comic-form-header">
@@ -143,9 +145,8 @@ const CreateBlogPage = () => {
                 <label className="comic-label-badge">COVER IMAGE</label>
 
                 <div
-                  className={`comic-upload-zone ${
-                    coverPreviewUrl ? "filled" : "empty"
-                  }`}
+                  className={`comic-upload-zone ${coverPreviewUrl ? "filled" : "empty"
+                    }`}
                   onClick={() => coverInputRef.current?.click()}
                 >
                   {coverPreviewUrl ? (

@@ -8,14 +8,14 @@ interface Card {
 
 const ProductCard = ({ imageSrc, title, containerClassName }: Card) => {
   const navigate = useNavigate();
-  
+
   return (
-    <div className={`p-4 ${containerClassName}`}>
-      <img src={imageSrc} className="mx-auto mb-4 max-w-full h-auto" />
-      <p className="leading-relaxed font-semibold ">{title}</p>
+    <div className={`p-6 bg-white border-4 border-black shadow-[12px_12px_0px_#000] transform hover:scale-105 transition-transform duration-200 ${containerClassName}`}>
+      <img src={imageSrc} className="mx-auto mb-6 max-w-full h-auto" />
+      <p className="leading-relaxed font-black text-2xl uppercase font-comic">{title}</p>
       <button
         onClick={() => navigate("/blog")}
-        className="mt-6 bg-[#aa14f0] font-medium text-white py-2 px-6 cursor-pointer shadow-[6px_4px_0_#000] border-2 border-black rounded-md"
+        className="mt-6 bg-[#ffde03] font-black text-black text-xl py-3 px-8 cursor-pointer shadow-[6px_6px_0_#000] border-4 border-black hover:bg-[#e74c3c] hover:text-white transition-colors duration-200 uppercase"
       >
         Explore
       </button>

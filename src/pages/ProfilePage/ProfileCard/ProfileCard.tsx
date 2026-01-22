@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ProfileCard.css";
-import { changePassword, getUser, logoutUser, } from "@/api/auth";
+import { changePassword, getUser, logoutUser } from "@/api/auth";
 import { useNavigate } from "react-router-dom";
 
 const TAB_TITLES = {
@@ -13,7 +13,8 @@ const TAB_TITLES = {
 
 const ProfileCard = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [activeTab, setActiveTab] = useState<keyof typeof TAB_TITLES>("general");
+  const [activeTab, setActiveTab] =
+    useState<keyof typeof TAB_TITLES>("general");
   const [formData, setFormData] = useState({
     email: "",
     role: "",
@@ -37,7 +38,7 @@ const ProfileCard = () => {
     }
   };
 
-  const handleVerification = async () => { };
+  const handleVerification = async () => {};
 
   useEffect(() => {
     const fetchUserData = async () => {

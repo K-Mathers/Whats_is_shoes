@@ -11,10 +11,13 @@ const HeaderHome = () => {
         <CustomButton
           textButton="START"
           fz="48px"
-          padding="20px 80px"
+          padding="30px 100px"
+          backgroundColor="#ffde03"
+          textColor="#000"
+          boxShadow="10px 10px 0px #000"
           transform="rotate(-5deg)"
-          hoverTransform="rotate(-5deg) scale(1.05)"
-          transition="transform 0.2s ease"
+          hoverTransform="rotate(-5deg) scale(1.1)"
+          transition="all 0.3s ease"
         />
       </div>
     </header>

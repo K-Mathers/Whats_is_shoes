@@ -1,14 +1,36 @@
-.header{
+.header {
   background-image: url("./HeaderBackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 130vh;  
+  background-position: center 68px;
+  min-height: 100vh;
   width: 100%;
+  position: relative;
+  border-bottom: 8px solid #000;
+  background-color: #fdfbf1;
 }
 
 .start-btn-block {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 300px; 
+  height: 60vh;
+}
+
+@media (max-width: 768px) {
+  .header {
+    background-position: center 120px;
+    min-height: 80vh;
+  }
+
+  .start-btn-block {
+    height: 40vh;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    background-position: center 150px;
+  }
 }
