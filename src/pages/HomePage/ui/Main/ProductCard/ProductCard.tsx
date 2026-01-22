@@ -10,7 +10,7 @@ const ProductCard = ({ imageSrc, title, containerClassName }: Card) => {
   const navigate = useNavigate();
 
   return (
-    <div className={`p-6 bg-white border-4 border-black shadow-[12px_12px_0px_#000] transform hover:scale-105 transition-transform duration-200 ${containerClassName}`}>
+    <div className={`p-6 bg-white dark:bg-[#2d2d2d] dark:text-white border-4 border-black shadow-[12px_12px_0px_#000] transform hover:scale-105 transition-transform duration-200 ${containerClassName}`}>
       <img src={imageSrc} className="mx-auto mb-6 max-w-full h-auto" />
       <p className="leading-relaxed font-black text-2xl uppercase font-comic">{title}</p>
       <button

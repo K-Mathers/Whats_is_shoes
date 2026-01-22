@@ -4,11 +4,11 @@ import ScrollButton from "@/components/ScrollButton/ScrollButton";
 import HeaderHome from "./ui/Header/HeaderHome";
 import FooterHome from "./ui/Footer/FooterHome";
 import "./HomePage.css";
-import ComicChat from "@/components/ComicChat/ComicChat";
 import jordanRed from "@/assets/AuthAssets/sneaker1.png";
 import sneakerBlue from "@/assets/AuthAssets/sneaker2.png";
 import burstPow from "@/assets/AuthAssets/burst_pow.png";
 import burstZap from "@/assets/AuthAssets/burst_zap.png";
+import ComicChat from "@/components/ComicChat/ComicChat";
 
 const HomePage = () => {
   const count = useRef<HTMLDivElement | null>(null);

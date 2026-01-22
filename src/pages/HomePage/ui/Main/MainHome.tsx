@@ -32,7 +32,7 @@ const MainHome = ({ ref }: IMainHome) => {
             </div>
           </div>
 
-          <div className="flex justify-center items-center bg-white border-4 border-black p-6 md:p-8 shadow-[10px_10px_0px_#000] transform rotate-1 min-w-[250px]">
+          <div className="flex justify-center items-center bg-white dark:bg-[#2d2d2d] dark:text-white border-4 border-black p-6 md:p-8 shadow-[10px_10px_0px_#000] transform rotate-1 min-w-[250px]">
             <div className="text-center">
               <h2 className="font-black text-5xl md:text-7xl uppercase mb-2">30K+</h2>
               <p className="font-black text-xl md:text-2xl uppercase">brand CHANNEL</p>
@@ -53,7 +53,7 @@ const MainHome = ({ ref }: IMainHome) => {
             <img className="relative z-10 p-4" src="/Trending_block.png" alt="Trending" />
           </div>
 
-          <div className="flex-1 max-w-2xl flex flex-col justify-center items-start bg-white border-4 border-black p-8 md:p-12 shadow-[15px_15px_0px_#000] rotate-1">
+          <div className="flex-1 max-w-2xl flex flex-col justify-center items-start bg-white dark:bg-[#2d2d2d] dark:text-white border-4 border-black p-8 md:p-12 shadow-[15px_15px_0px_#000] rotate-1">
             <p className="font-black text-4xl md:text-6xl lg:text-7xl mb-6 uppercase leading-tight">
               TRENDING SHOES <br /> OF THE DAY
             </p>
@@ -122,7 +122,7 @@ const MainHome = ({ ref }: IMainHome) => {
                 most popular
               </p>
             </div>
-            <p className="text-lg md:text-2xl font-bold mt-8 bg-white p-4 border-4 border-black shadow-[6px_6px_0px_#000] -rotate-1">
+            <p className="text-lg md:text-2xl font-bold mt-8 bg-white dark:bg-[#2d2d2d] dark:text-white p-4 border-4 border-black shadow-[6px_6px_0px_#000] -rotate-1">
               Here’s Our most popular articles. People tend to love whatever is
               in here.
             </p>
@@ -137,7 +137,7 @@ const MainHome = ({ ref }: IMainHome) => {
                     onClick={() => setActiveTab(cat)}
                     className={`${activeTab === cat
                       ? "bg-[#e74c3c] text-white"
-                      : "bg-white text-black"
+                      : "bg-white text-black dark:bg-[#2d2d2d] dark:text-white"
                       } p-6 border-4 border-black shadow-[8px_8px_0px_#000] hover:bg-[#ffde03] hover:text-black transition-all cursor-pointer transform active:translate-x-2 active:translate-y-2 active:shadow-none`}
                   >
                     {cat}
@@ -153,7 +153,7 @@ const MainHome = ({ ref }: IMainHome) => {
                   Currently viewing category: <br />
                   <span className="text-[#e74c3c] text-4xl block mt-2">{activeTab}</span>
                 </p>
-                <div className="mt-8 p-4 bg-white border-4 border-black shadow-[6px_6px_0px_#000] -rotate-2">
+                <div className="mt-8 p-4 bg-white dark:bg-[#2d2d2d] dark:text-white border-4 border-black shadow-[6px_6px_0px_#000] -rotate-2">
                   <p className="text-xl font-bold uppercase italic">
                     "Awesome sneakers await you in this collection! Click other tabs to explore like a hero!"
                   </p>

@@ -104,6 +104,61 @@
   margin: 0;
 }
 
+.dark-theme .session {
+  background: #2d2d2d;
+  border-color: #ffde03;
+  box-shadow: 2px 2px 0 #fff;
+  color: #fff;
+}
+
+.dark-theme .session:hover {
+  background-color: #1a1a1a;
+  box-shadow: 4px 4px 0 #fff;
+}
+
+.dark-theme .session.active {
+  background-color: #ffde03;
+  color: #000;
+  box-shadow: 1px 1px 0 #fff;
+}
+
+.dark-theme .dots-trigger {
+  background-color: #ffde03;
+  border-color: #000;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.dark-theme .dots-trigger:hover {
+  box-shadow: 3px 3px 0 #000;
+}
+
+.dark-theme .dots-trigger:active {
+  box-shadow: 0 0 0 #000;
+}
+
+.dark-theme .comic-dropdown .ant-dropdown-menu {
+  background-color: #2d2d2d;
+  border-color: #ffde03;
+}
+
+.dark-theme .comic-dropdown .ant-dropdown-menu-item {
+  color: #fff;
+}
+
+.dark-theme .comic-dropdown .ant-dropdown-menu-item:hover {
+  background-color: #ffde03;
+  color: #000;
+}
+
+.dark-theme .comic-dropdown .ant-dropdown-menu-item-danger:hover {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.dark-theme .comic-dropdown .ant-dropdown-menu-item-divider {
+  background-color: #ffde03;
+}
+
 @media (max-width: 410px) {
   .history-section {
     width: 100%;

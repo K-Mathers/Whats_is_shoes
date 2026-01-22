@@ -173,3 +173,20 @@
     opacity: 1;
   }
 }
+
+.dark-theme .ai-msg {
+  background-color: #2d2d2d;
+  color: #fff;
+  border-color: #ffde03;
+  filter: drop-shadow(4px 4px 0 #ffde03);
+}
+
+.dark-theme .typing-indicator {
+  background: #2d2d2d;
+  border-color: #ffde03;
+  box-shadow: 4px 4px 0 #ffde03;
+}
+
+.dark-theme .typing-indicator span {
+  background-color: #fff;
+}

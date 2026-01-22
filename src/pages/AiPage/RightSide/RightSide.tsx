@@ -39,9 +39,8 @@ const RightSide = ({
           {messages.map((el, index) => (
             <div
               key={index}
-              className={`message-bubble ${
-                el.role === "USER" ? "user-msg" : "ai-msg"
-              }`}
+              className={`message-bubble ${el.role === "USER" ? "user-msg" : "ai-msg"
+                }`}
             >
               {el.role === "ASSISTANT" ? (
                 <ReactMarkdown>{el.text}</ReactMarkdown>

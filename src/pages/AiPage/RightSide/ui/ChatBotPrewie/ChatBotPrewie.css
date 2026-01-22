@@ -159,3 +159,41 @@
     font-size: 12px;
   }
 }
+
+.dark-theme .notification-element,
+.dark-theme .notification-element:nth-child(1),
+.dark-theme .notification-element:nth-child(2),
+.dark-theme .notification-element:nth-child(3) {
+  background-color: #2d2d2d;
+  border-color: #ffde03;
+  color: #fff;
+}
+
+.dark-theme .first-block-title,
+.dark-theme .first-block-description {
+  color: #fff;
+}
+
+.dark-theme .notification-block-wrapper {
+  background: #1a1a1a;
+  border-color: #ffde03;
+  color: #fff;
+}
+
+.dark-theme .notification-block-wrapper .ant-typography,
+.dark-theme .notification-block-wrapper p {
+  color: #fff;
+}
+
+.dark-theme .AI-title {
+  -webkit-text-stroke: 1px #ffde03;
+}
+
+.dark-theme .AI-title-block {
+  border-color: #ffde03;
+}
+
+.dark-theme .icon-block {
+  border-color: #000;
+  box-shadow: 3px 3px 0 #fff;
+}

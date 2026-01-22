@@ -28,6 +28,13 @@
   border-radius: 8px;
 }
 
+.dark-theme .glass-card {
+  background: #1e3a8a;
+  border-color: #ffde03;
+  box-shadow: 12px 12px 0 #fff;
+}
+
+
 @media (max-width: 480px) {
   .glass-card {
     width: 95%;
@@ -35,5 +42,11 @@
     padding: 24px 16px;
     margin: 20px auto;
     box-shadow: 8px 8px 0 #000;
+  }
+}
+
+@media (max-width: 480px) {
+  .dark-theme .glass-card {
+    box-shadow: 8px 8px 0 #fff;
   }
 }

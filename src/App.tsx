@@ -8,10 +8,11 @@ import RegistrationPage from "./pages/AuthPage/RegistrationPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import CreateBlogPage from "./pages/CreateBlogPage/CreateBlogPage";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogPage />} />
@@ -23,7 +24,7 @@ function App() {
         <Route path="/ai/:sessionId" element={<AiPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
-    </>
+    </ThemeProvider>
   );
 }
 

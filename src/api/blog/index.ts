@@ -10,3 +10,12 @@ export const createBlog = async (blogJSON: IBlogJSON) => {
     console.error(error);
   }
 };
+
+export const getPublicBlog = async () => {
+  try {
+    const response = await api.get(blogPath.ALLBLOG);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

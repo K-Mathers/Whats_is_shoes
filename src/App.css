@@ -15,6 +15,7 @@ body {
   background-color: #e2e3e7;
   height: 100%;
   background-image: url("/public/wallpaper-skin.png");
+  transition: background-color 0.3s ease, background-image 0.3s ease;
 }
 
 body {
@@ -72,4 +73,45 @@ h6 {
   src: url("./assets/fonts/Crimson-Regular.ttf") format("woff2");
   font-weight: 400;
   font-style: normal;
+}
+
+.dark-theme {
+  color-scheme: dark;
+}
+
+.dark-theme html,
+.dark-theme body {
+  background-color: #121212;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/public/wallpaper-skin.png");
+  color: #e0e0e0;
+}
+
+.dark-theme a {
+  color: #ffde03;
+}
+
+.dark-theme .link-block {
+  background: #1e1e1e;
+  border-bottom: 4px solid #ffde03;
+}
+
+.dark-theme .header-link {
+  color: #ffffff;
+}
+
+.dark-theme .header-link:hover {
+  color: #ffde03;
+}
+
+.dark-theme .header-link::after {
+  background-color: #ffde03;
+}
+
+.dark-theme .logo-text {
+  color: #ffde03;
+  text-shadow: 2px 2px 0px #000;
+}
+
+.dark-theme .logo-block svg path {
+  fill: #ffde03;
 }

@@ -33,3 +33,12 @@
     width: 24px;
     height: 24px;
 }
+
+.dark-theme .social-button {
+    border-color: #ffde03;
+    box-shadow: 4px 4px 0 #fff;
+}
+
+.dark-theme .social-button:hover {
+    box-shadow: 6px 6px 0 #fff;
+}

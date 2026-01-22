@@ -90,7 +90,7 @@
 }
 
 .profile-form--full {
-  grid-template-columns: 1fr; 
+  grid-template-columns: 1fr;
 }
 
 .profile-form__group {
@@ -167,6 +167,7 @@
     flex-direction: column;
     padding: 20px;
   }
+
   .profile-sidebar {
     width: 100%;
     margin-right: 0;
@@ -174,7 +175,48 @@
     flex-direction: row;
     overflow-x: auto;
   }
+
   .profile-form {
     grid-template-columns: 1fr;
   }
+}
+
+.dark-theme .profile-card {
+  background: #2d2d2d;
+  color: #fff;
+  box-shadow: 6px 6px 0 #fff;
+}
+
+.dark-theme .profile-card__header {
+  border-bottom: 3px solid #ffde03;
+}
+
+.dark-theme .profile-sidebar__btn {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.dark-theme .profile-sidebar__btn:hover {
+  box-shadow: 8px 8px 0px 0px #fff;
+}
+
+.dark-theme .profile-sidebar__btn--active {
+  background: #ffd740;
+  color: #000;
+}
+
+.dark-theme .profile-form__input {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #ffde03;
+}
+
+.dark-theme .profile-form__input:disabled {
+  background: #121212;
+  color: #888;
+  border-color: #444;
+}
+
+.dark-theme .profile-form__label {
+  color: #fff;
 }

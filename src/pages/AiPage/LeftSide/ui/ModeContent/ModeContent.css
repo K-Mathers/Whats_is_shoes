@@ -87,3 +87,34 @@
     line-height: 1.4;
   }
 }
+
+.dark-theme .card-block {
+  background: #2d2d2d;
+  border-color: #ffde03;
+}
+
+.dark-theme .card-block:hover {
+  box-shadow: 6px 6px 0 #fff;
+  background: #1a1a1a;
+}
+
+.dark-theme .card-block.selected {
+  background: #ffde03;
+  color: #000;
+  box-shadow: 2px 2px 0 #fff;
+}
+
+.dark-theme .card-block.selected .mode-title,
+.dark-theme .card-block.selected .mode-description {
+  color: #000;
+}
+
+.dark-theme .card-icon {
+  background: #1a1a1a;
+  border-color: #ffde03;
+}
+
+.dark-theme .mode-title,
+.dark-theme .mode-description {
+  color: #fff;
+}

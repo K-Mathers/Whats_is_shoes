@@ -17,6 +17,12 @@
   height: 60vh;
 }
 
+.dark-theme .header {
+  background-color: #121212;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./HeaderBackground.jpg");
+  border-bottom: 8px solid #ffde03;
+}
+
 @media (max-width: 768px) {
   .header {
     background-position: center 120px;

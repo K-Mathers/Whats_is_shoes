@@ -378,6 +378,88 @@
   display: list-item;
 }
 
+
+.dark-theme .comic-page-wrapper {
+  background: #121212;
+  background-image: radial-gradient(#3a3a3a 15%, transparent 16%);
+}
+
+.dark-theme .comic-form-container {
+  background: #2d2d2d;
+  border-color: #ffde03;
+  box-shadow: 25px 25px 0px #fff;
+}
+
+.dark-theme .huge-title {
+  color: #fff;
+  -webkit-text-stroke: 1px #ffde03;
+}
+
+.dark-theme .big-input {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #ffde03;
+}
+
+.dark-theme .big-input:focus {
+  background: #000;
+  box-shadow: 8px 8px 0px #fff;
+}
+
+.dark-theme .comic-upload-zone {
+  background: #2d2d2d;
+  border-color: #ffde03;
+}
+
+.dark-theme .upload-placeholder-content {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #ffde03;
+}
+
+.dark-theme .comic-upload-zone.empty {
+  background-color: #1a1a1a;
+  background-image: radial-gradient(#3a3a3a 10%, transparent 11%);
+}
+
+.dark-theme .text-main,
+.dark-theme .text-sub,
+.dark-theme .icon-camera {
+  color: #fff;
+}
+
+.dark-theme .comic-gallery-grid .gallery-item {
+  background: #2d2d2d;
+  border-color: #ffde03;
+  box-shadow: 5px 5px 0px #fff;
+}
+
+.dark-theme .gallery-add-btn {
+  border-color: #ffde03;
+  box-shadow: 5px 5px 0px #fff;
+}
+
+.dark-theme .comic-menubar {
+  background: #1a1a1a;
+  border-color: #ffde03;
+}
+
+.dark-theme .comic-menubar button {
+  background: #2d2d2d;
+  color: #fff;
+  border-color: #ffde03;
+}
+
+.dark-theme .comic-menubar button:hover:not(:disabled),
+.dark-theme .comic-menubar button.is-active {
+  background: #ffde03;
+  color: #000;
+}
+
+.dark-theme .tiptap-editor-content {
+  color: #fff;
+}
+
 @media (max-width: 600px) {
   .comic-gallery-grid {
     grid-template-columns: repeat(2, 1fr);

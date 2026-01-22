@@ -158,3 +158,18 @@
     gap: 2px;
   }
 }
+
+.dark-theme .input-block {
+  background-color: #2d2d2d;
+  border-color: #ffde03;
+}
+
+.dark-theme .ai-input {
+  color: #fff;
+}
+
+@media (max-width: 410px) {
+  .dark-theme .ai-input-container {
+    background: #121212;
+  }
+}

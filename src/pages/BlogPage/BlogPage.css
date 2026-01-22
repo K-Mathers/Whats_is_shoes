@@ -27,23 +27,9 @@
   gap: 60px;
 }
 
-.blog-header-wrapper .link-block {
-  background: #ffde03;
-  padding: 12px 40px;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  position: relative;
-  border-bottom: 4px solid #000;
-}
-
 .blog-header-wrapper .logo-text,
 .blog-header-wrapper .header-link {
   font-size: 20px;
-  color: #000;
   text-transform: uppercase;
   font-weight: 900;
   font-family: 'Comic Neue', cursive;
@@ -95,6 +81,18 @@
   animation: float2 10s ease-in-out infinite;
 }
 
+.dark-theme .blog-page-container {
+  background-color: #121212;
+  background-image: radial-gradient(#3a3a3a 1.2px, transparent 1.2px);
+}
+
+.dark-theme .comic-decoration {
+  mix-blend-mode: normal;
+  opacity: 0.9;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+
 @keyframes float1 {
 
   0%,
@@ -144,10 +142,4 @@
     display: none;
   }
 
-  .blog-header-wrapper .link-block {
-    flex-direction: column;
-    padding: 15px 10px;
-    gap: 15px;
-    align-items: center;
-  }
 }

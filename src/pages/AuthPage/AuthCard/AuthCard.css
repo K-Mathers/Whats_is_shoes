@@ -206,6 +206,43 @@
   text-decoration: underline;
 }
 
+.dark-theme .auth-card__title {
+  color: #fff;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.dark-theme .auth-card__label,
+.dark-theme .auth-card__social-text,
+.dark-theme .auth-card__switch-text {
+  color: #e0e0e0;
+}
+
+.dark-theme .auth-card__input {
+  background: #2d2d2d;
+  color: #fff;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #fff;
+}
+
+.dark-theme .auth-card__input:focus {
+  box-shadow: 4px 4px 0 #fff;
+  border-color: #ffde03;
+}
+
+.dark-theme .auth-card__input::placeholder {
+  color: #aaa;
+}
+
+.dark-theme .auth-card__switch-link,
+.dark-theme .auth-card__forgot-link {
+  color: #ffde03;
+}
+
+.dark-theme .auth-card__social::before,
+.dark-theme .auth-card__social::after {
+  background: #fff;
+}
+
 @media (max-width: 425px) {
   .auth-card__title {
     font-size: 26px;

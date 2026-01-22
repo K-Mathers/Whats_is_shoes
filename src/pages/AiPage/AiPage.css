@@ -30,21 +30,12 @@
 
 .ai-header-container {
   width: 100%;
-  border-bottom: 3px solid #000000;
-  background: #ffde03;
-  box-shadow: 0 4px 0 #000000;
   z-index: 20;
-}
-
-.ai-header-container .link-block {
-  background: #ffde03;
-  border: none;
 }
 
 .ai-header-container .logo-text,
 .ai-header-container .header-link {
   font-size: 20px;
-  color: #000;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -83,4 +74,9 @@
     top: 0;
     z-index: 50;
   }
+}
+
+.dark-theme .ai-page-layout {
+  background-color: #121212;
+  background-image: radial-gradient(#3a3a3a 1px, transparent 1px);
 }
