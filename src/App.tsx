@@ -9,10 +9,12 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import CreateBlogPage from "./pages/CreateBlogPage/CreateBlogPage";
 import { ThemeProvider } from "./context/ThemeContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <ThemeProvider>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogPage />} />

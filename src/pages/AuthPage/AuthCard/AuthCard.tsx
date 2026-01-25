@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { GlassCard } from "../GlassCard/GlassCard";
 import "./AuthCard.css";
 import { getUser, loginUser, registrationUser } from "@/api/auth";
@@ -12,6 +12,10 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SocialButtons } from "../SocialButtons/SocialButtons";
+import {
+  errorNotification,
+  successNotification,
+} from "@/utils/notification/notification";
 
 type AuthCard = {
   type: "login" | "register";
@@ -21,7 +25,6 @@ type FormData = loginSchemaType & Partial<registerSchemaType>;
 
 const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
 
   const {
     register: formRegister,
@@ -31,21 +34,14 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
     resolver: zodResolver(type === "login" ? loginSchema : registerSchema),
   });
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        await getUser();
-        navigate("/profile");
-      } catch {}
-    };
-    checkAuth();
-  }, [navigate]);
-
   const onSubmit = async (data: FormData) => {
-    setLoading(true);
-
+    const isLogin = type === "login";
+    const successMsg = isLogin
+      ? "Login successful!"
+      : "Registration successful!";
+    const errorMsg = isLogin ? "Login failed" : "Registration failed.";
     try {
-      if (type === "login") {
+      if (isLogin) {
         await loginUser({ email: data.email, password: data.password });
       } else {
         await registrationUser({
@@ -54,13 +50,25 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
           confirmPassword: data.confirmPassword!,
         });
       }
+      successNotification(successMsg);
       setTimeout(() => navigate("/profile"), 800);
     } catch (err) {
+      errorNotification(errorMsg);
       console.error("Auth err:", err);
-    } finally {
-      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await getUser();
+        navigate("/profile");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    checkAuth();
+  }, [navigate]);
 
   return (
     <div className="auth-card">

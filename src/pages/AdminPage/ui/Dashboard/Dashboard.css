@@ -115,9 +115,8 @@
 
 .dark-theme .comic-header,
 .dark-theme .comic-panel {
-  background: #2d2d2d;
+  background: #1e1e1e;
   color: #fff;
-  border-color: #ffde03;
 }
 
 .dark-theme .comic-table th {
