@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import { GlassCard } from "../GlassCard/GlassCard";
 import "./AuthCard.css";
-import { getUser, loginUser, registrationUser } from "@/api/auth";
+import { loginUser, registrationUser } from "@/api/auth";
 import { Link, useNavigate } from "react-router-dom";
 import {
   loginSchema,
@@ -16,6 +15,8 @@ import {
   errorNotification,
   successNotification,
 } from "@/utils/notification/notification";
+import { useEffect } from "react";
+import { useAuth } from "@/components/AuthProvider/AuthContext/AuthContext";
 
 type AuthCard = {
   type: "login" | "register";
@@ -23,8 +24,10 @@ type AuthCard = {
 
 type FormData = loginSchemaType & Partial<registerSchemaType>;
 
-const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
+const AuthCard = ({ type = "login" }: AuthCard) => {
   const navigate = useNavigate();
+
+  const { isAuthenticated, refreshAuth } = useAuth();
 
   const {
     register: formRegister,
@@ -50,6 +53,7 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
           confirmPassword: data.confirmPassword!,
         });
       }
+      await refreshAuth();
       successNotification(successMsg);
       setTimeout(() => navigate("/profile"), 800);
     } catch (err) {
@@ -59,16 +63,10 @@ const AuthCard: React.FC<AuthCard> = ({ type = "login" }) => {
   };
 
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        await getUser();
-        navigate("/profile");
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    checkAuth();
-  }, [navigate]);
+    if (isAuthenticated) {
+      navigate("/profile");
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <div className="auth-card">

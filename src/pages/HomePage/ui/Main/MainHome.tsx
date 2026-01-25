@@ -15,7 +15,7 @@ const CATEGORIES = [
   "PREMIUM COLLECTION",
   "BEST MINIMALS",
   "CRAZY SHOES",
-  "NEW SHOES"
+  "NEW SHOES",
 ];
 
 const MainHome = ({ ref }: IMainHome) => {
@@ -27,21 +27,31 @@ const MainHome = ({ ref }: IMainHome) => {
         <section className="pt-24 pb-12 flex flex-wrap justify-center md:justify-around gap-8 px-4">
           <div className="flex justify-center items-center bg-[#ffde03] border-4 border-black p-6 md:p-8 shadow-[10px_10px_0px_#000] transform -rotate-2 min-w-[250px]">
             <div className="text-center">
-              <h2 className="font-black text-5xl md:text-7xl uppercase mb-2">10K+</h2>
-              <p className="font-black text-xl md:text-2xl uppercase">User trust us</p>
+              <h2 className="font-black text-5xl md:text-7xl uppercase mb-2">
+                10K+
+              </h2>
+              <p className="font-black text-xl md:text-2xl uppercase">
+                User trust us
+              </p>
             </div>
           </div>
 
           <div className="flex justify-center items-center bg-white dark:bg-[#2d2d2d] dark:text-white border-4 border-black p-6 md:p-8 shadow-[10px_10px_0px_#000] transform rotate-1 min-w-[250px]">
             <div className="text-center">
-              <h2 className="font-black text-5xl md:text-7xl uppercase mb-2">30K+</h2>
-              <p className="font-black text-xl md:text-2xl uppercase">brand CHANNEL</p>
+              <h2 className="font-black text-5xl md:text-7xl uppercase mb-2">
+                30K+
+              </h2>
+              <p className="font-black text-xl md:text-2xl uppercase">
+                brand CHANNEL
+              </p>
             </div>
           </div>
 
           <div className="flex justify-center items-center bg-[#e74c3c] text-white border-4 border-black p-6 md:p-8 shadow-[10px_10px_0px_#000] transform -rotate-1 min-w-[250px]">
             <div className="text-center">
-              <h2 className="font-black text-5xl md:text-7xl uppercase mb-2">1K+</h2>
+              <h2 className="font-black text-5xl md:text-7xl uppercase mb-2">
+                1K+
+              </h2>
               <p className="font-black text-xl md:text-2xl uppercase">TOPICS</p>
             </div>
           </div>
@@ -50,7 +60,11 @@ const MainHome = ({ ref }: IMainHome) => {
         <section className="flex flex-col lg:flex-row items-center justify-between relative py-12 md:py-24 px-8 gap-12">
           <div className="flex-1 flex justify-center max-w-lg relative">
             <div className="absolute inset-0 bg-[#ffde03] border-4 border-black -rotate-3 -z-10"></div>
-            <img className="relative z-10 p-4" src="/Trending_block.png" alt="Trending" />
+            <img
+              className="relative z-10 p-4"
+              src="/Trending_block.png"
+              alt="Trending"
+            />
           </div>
 
           <div className="flex-1 max-w-2xl flex flex-col justify-center items-start bg-white dark:bg-[#2d2d2d] dark:text-white border-4 border-black p-8 md:p-12 shadow-[15px_15px_0px_#000] rotate-1">
@@ -88,8 +102,16 @@ const MainHome = ({ ref }: IMainHome) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full relative">
-              <img src={star} className="absolute -top-20 left-0 -z-10 hidden md:block" alt="star" />
-              <img src={star2} className="absolute -top-40 right-10 -z-10 hidden md:block" alt="star" />
+              <img
+                src={star}
+                className="absolute -top-20 left-0 -z-10 hidden md:block"
+                alt="star"
+              />
+              <img
+                src={star2}
+                className="absolute -top-40 right-10 -z-10 hidden md:block"
+                alt="star"
+              />
 
               <ProductCard
                 imageSrc={legendarySneakers}
@@ -135,10 +157,11 @@ const MainHome = ({ ref }: IMainHome) => {
                   <p
                     key={cat}
                     onClick={() => setActiveTab(cat)}
-                    className={`${activeTab === cat
-                      ? "bg-[#e74c3c] text-white"
-                      : "bg-white text-black dark:bg-[#2d2d2d] dark:text-white"
-                      } p-6 border-4 border-black shadow-[8px_8px_0px_#000] hover:bg-[#ffde03] hover:text-black transition-all cursor-pointer transform active:translate-x-2 active:translate-y-2 active:shadow-none`}
+                    className={`${
+                      activeTab === cat
+                        ? "bg-[#e74c3c] text-white"
+                        : "bg-white text-black dark:bg-[#2d2d2d] dark:text-white"
+                    } p-6 border-4 border-black shadow-[8px_8px_0px_#000] hover:bg-[#ffde03] hover:text-black transition-all cursor-pointer transform active:translate-x-2 active:translate-y-2 active:shadow-none`}
                   >
                     {cat}
                   </p>
@@ -148,18 +171,27 @@ const MainHome = ({ ref }: IMainHome) => {
 
             <div className="flex-1 flex justify-center items-center relative w-full">
               <div className="bg-[#ffde03] border-4 border-black p-12 shadow-[15px_15px_0px_#000] rotate-3 max-w-lg">
-                <p className="font-black text-5xl mb-4 italic uppercase">BOOM! 👟</p>
+                <p className="font-black text-5xl mb-4 italic uppercase">
+                  BOOM! 👟
+                </p>
                 <p className="text-2xl font-bold uppercase">
                   Currently viewing category: <br />
-                  <span className="text-[#e74c3c] text-4xl block mt-2">{activeTab}</span>
+                  <span className="text-[#e74c3c] text-4xl block mt-2">
+                    {activeTab}
+                  </span>
                 </p>
                 <div className="mt-8 p-4 bg-white dark:bg-[#2d2d2d] dark:text-white border-4 border-black shadow-[6px_6px_0px_#000] -rotate-2">
                   <p className="text-xl font-bold uppercase italic">
-                    "Awesome sneakers await you in this collection! Click other tabs to explore like a hero!"
+                    "Awesome sneakers await you in this collection! Click other
+                    tabs to explore like a hero!"
                   </p>
                 </div>
               </div>
-              <img src={star} className="absolute -bottom-10 -right-10 w-24 h-24 rotate-12" alt="star" />
+              <img
+                src={star}
+                className="absolute -bottom-10 -right-10 w-24 h-24 rotate-12"
+                alt="star"
+              />
             </div>
           </div>
         </section>

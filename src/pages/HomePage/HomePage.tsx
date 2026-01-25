@@ -9,9 +9,11 @@ import sneakerBlue from "@/assets/AuthAssets/sneaker2.png";
 import burstPow from "@/assets/AuthAssets/burst_pow.png";
 import burstZap from "@/assets/AuthAssets/burst_zap.png";
 import ComicChat from "@/components/ComicChat/ComicChat";
+import { useAuth } from "@/components/AuthProvider/AuthContext/AuthContext";
 
 const HomePage = () => {
   const count = useRef<HTMLDivElement | null>(null);
+  const { isAuthenticated } = useAuth();
 
   const handleScroll = () => {
     if (count.current) {
@@ -29,15 +31,31 @@ const HomePage = () => {
       </div>
 
       <div className="home-content-wrapper">
-        <img src={jordanRed} className="comic-decoration decor-top-left" alt="" />
-        <img src={sneakerBlue} className="comic-decoration decor-top-right" alt="" />
-        <img src={burstPow} className="comic-decoration decor-bottom-left" alt="" />
-        <img src={burstZap} className="comic-decoration decor-bottom-right" alt="" />
+        <img
+          src={jordanRed}
+          className="comic-decoration decor-top-left"
+          alt=""
+        />
+        <img
+          src={sneakerBlue}
+          className="comic-decoration decor-top-right"
+          alt=""
+        />
+        <img
+          src={burstPow}
+          className="comic-decoration decor-bottom-left"
+          alt=""
+        />
+        <img
+          src={burstZap}
+          className="comic-decoration decor-bottom-right"
+          alt=""
+        />
         <MainHome ref={count} />
       </div>
 
       <FooterHome />
-      <ComicChat />
+      {isAuthenticated && <ComicChat />}
     </div>
   );
 };
