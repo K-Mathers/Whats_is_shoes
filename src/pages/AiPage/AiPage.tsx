@@ -3,30 +3,19 @@ import "./AiPage.css";
 import LeftSide from "./LeftSide/LeftSide";
 import RightSide, { type IChatMessage } from "./RightSide/RightSide";
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { getSpecificSessionsDetail } from "@/api/ai";
 import type { IServerMessage } from "@/types/SessionsDataTypes";
+import { useAuth } from "@/components/AuthProvider/AuthContext/AuthContext";
 
 const AiPage = () => {
   const [selectedMode, setSelectedMode] = useState("CREATIVE");
-  const { sessionId } = useParams();
-  const location = useLocation();
   const [messages, setMessages] = useState<IChatMessage[]>([]);
 
-  useEffect(() => {
-    const stateMessages = location.state?.preserveMessages;
-    if (stateMessages && Array.isArray(stateMessages)) {
-      setMessages(stateMessages);
-      window.history.replaceState({}, document.title, location.pathname);
-      return;
-    }
-
-    if (sessionId) {
-      loadHistory(sessionId);
-    } else {
-      setMessages([]);
-    }
-  }, [sessionId, location.state, location.pathname]);
+  const { sessionId } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
 
   const loadHistory = async (id: string) => {
     try {
@@ -45,6 +34,27 @@ const AiPage = () => {
       console.error("Ошибка загрузки истории:", error);
     }
   };
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, [isAuthenticated, navigate]);
+
+  useEffect(() => {
+    const stateMessages = location.state?.preserveMessages;
+    if (stateMessages && Array.isArray(stateMessages)) {
+      setMessages(stateMessages);
+      window.history.replaceState({}, document.title, location.pathname);
+      return;
+    }
+
+    if (sessionId) {
+      loadHistory(sessionId);
+    } else {
+      setMessages([]);
+    }
+  }, [sessionId, location.state, location.pathname]);
 
   return (
     <div className="ai-page-layout">
