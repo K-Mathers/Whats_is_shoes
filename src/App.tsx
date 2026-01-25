@@ -10,6 +10,7 @@ import AdminPage from "./pages/AdminPage/AdminPage";
 import CreateBlogPage from "./pages/CreateBlogPage/CreateBlogPage";
 import { ThemeProvider } from "./context/ThemeContext";
 import { ToastContainer } from "react-toastify";
+import ForgotPassPage from "./pages/ForgotPassPage/ForgotPassPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/ai" element={<AiPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/forgot-password" element={<ForgotPassPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/ai/:sessionId" element={<AiPage />} />
         <Route path="/admin" element={<AdminPage />} />

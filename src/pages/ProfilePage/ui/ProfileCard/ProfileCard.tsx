@@ -3,10 +3,10 @@ import "./ProfileCard.css";
 import { getUser } from "@/api/auth";
 import GeneralPage from "../Sections/GeneralSection";
 import SecurityPage from "../Sections/SecuritySection";
-import FargotPassPage from "../Sections/FargotPassSection";
 import VerifEmailPage from "../Sections/VerifEmailSection";
 import LogoutPage from "../Sections/LogoutSection";
 import { TAB_TITLES } from "../../lib";
+import ForgotPasswordForm from "@/components/Auth/ForgotPasswordForm";
 
 const ProfileCard = () => {
   const [activeTab, setActiveTab] =
@@ -18,13 +18,12 @@ const ProfileCard = () => {
     isVerified: "",
   });
   const [forgotEmail, setForgotEmail] = useState("");
-  const [forgotStep, setForgotStep] = useState(1);
-  const [verifStep, setVerifStep] = useState(1);
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",
   });
+  const [verifStep, setVerifStep] = useState(1);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -39,29 +38,22 @@ const ProfileCard = () => {
     fetchUserData();
   }, []);
 
-  useEffect(() => {
-    setForgotStep(1);
-    setVerifStep(1);
-  }, [activeTab]);
-
   return (
     <div className="profile-page">
       <aside className="profile-sidebar">
         <div className="profile-sidebar__title">PROFILE!</div>
 
         <button
-          className={`profile-sidebar__btn ${
-            activeTab === "general" ? "profile-sidebar__btn--active" : ""
-          }`}
+          className={`profile-sidebar__btn ${activeTab === "general" ? "profile-sidebar__btn--active" : ""
+            }`}
           onClick={() => setActiveTab("general")}
         >
           General Info
         </button>
 
         <button
-          className={`profile-sidebar__btn ${
-            activeTab === "security" ? "profile-sidebar__btn--active" : ""
-          }`}
+          className={`profile-sidebar__btn ${activeTab === "security" ? "profile-sidebar__btn--active" : ""
+            }`}
           onClick={() => setActiveTab("security")}
         >
           Security
@@ -103,14 +95,13 @@ const ProfileCard = () => {
             setPasswordData={setPasswordData}
           />
 
-          <FargotPassPage
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-            forgotStep={forgotStep}
-            setForgotStep={setForgotStep}
-            forgotEmail={forgotEmail}
-            setForgotEmail={setForgotEmail}
-          />
+          {activeTab === "forgotPass" && (
+            <ForgotPasswordForm
+              forgotEmail={forgotEmail}
+              setForgotEmail={setForgotEmail}
+              onSuccess={() => setActiveTab("security")}
+            />
+          )}
 
           <VerifEmailPage
             activeTab={activeTab}
