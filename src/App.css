@@ -53,6 +53,10 @@ h6 {
   isolation: isolate;
 }
 
+.Toastify__toast * {
+  margin: 0;
+}
+
 @font-face {
   font-family: "Franchise Regular";
   src: url("./assets/fonts/Franchise-Regular.woff2") format("woff2");

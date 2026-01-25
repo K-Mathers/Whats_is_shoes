@@ -7,6 +7,10 @@ import type { IBlogJSON } from "@/api/blog/types";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { MenuBar } from "@/components/MenuBar/MenuBar";
+import {
+  errorNotification,
+  successNotification,
+} from "@/utils/notification/notification";
 
 const CreateBlogPage = () => {
   const [userTitle, setUserTitle] = useState<string>("");
@@ -52,10 +56,10 @@ const CreateBlogPage = () => {
 
   const removeGalleryImage = (indexToRemove: number) => {
     setGalleryFiles((prev) =>
-      prev.filter((_, index) => index !== indexToRemove)
+      prev.filter((_, index) => index !== indexToRemove),
     );
     setGalleryPreviewsUrl((prev) =>
-      prev.filter((_, index) => index !== indexToRemove)
+      prev.filter((_, index) => index !== indexToRemove),
     );
   };
 
@@ -74,26 +78,31 @@ const CreateBlogPage = () => {
     e.preventDefault();
 
     const contentHtml = editor?.getHTML() || "";
+    try {
+      const coverServerImage = await uploadImage(coverFile);
+      const galleryServerFiles = await Promise.all(
+        galleryFiles.map(async (el) => {
+          const response = await uploadImage(el);
+          return response.imageUrl;
+        }),
+      );
 
-    const coverServerImage = await uploadImage(coverFile);
-    const galleryServerFiles = await Promise.all(
-      galleryFiles.map(async (el) => {
-        const response = await uploadImage(el);
-        return response.imageUrl;
-      })
-    );
+      const blogJSON: IBlogJSON = {
+        title: userTitle,
+        shortDescription,
+        content: contentHtml,
+        coverImage: coverServerImage.imageUrl,
+        images: galleryServerFiles,
+        category: category,
+      };
 
-    const blogJSON: IBlogJSON = {
-      title: userTitle,
-      shortDescription,
-      content: contentHtml,
-      coverImage: coverServerImage.imageUrl,
-      images: galleryServerFiles,
-      category: category,
-    };
-
-    await createBlog(blogJSON);
-    handleClearInputs();
+      await createBlog(blogJSON);
+      handleClearInputs();
+      successNotification("The article has been sent for moderation!");
+    } catch (error) {
+      errorNotification("Error create article");
+      console.error(error);
+    }
   };
 
   return (
@@ -145,8 +154,9 @@ const CreateBlogPage = () => {
                 <label className="comic-label-badge">COVER IMAGE</label>
 
                 <div
-                  className={`comic-upload-zone ${coverPreviewUrl ? "filled" : "empty"
-                    }`}
+                  className={`comic-upload-zone ${
+                    coverPreviewUrl ? "filled" : "empty"
+                  }`}
                   onClick={() => coverInputRef.current?.click()}
                 >
                   {coverPreviewUrl ? (

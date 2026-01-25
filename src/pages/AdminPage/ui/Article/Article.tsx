@@ -52,14 +52,8 @@ const Article = () => {
     console.log(data);
   };
 
-  const getBlogs = async () => {
-    const response = await getPublicBlog();
-    return console.log(response);
-  };
-
   useEffect(() => {
     getArticles();
-    getBlogs();
   }, []);
 
   if (loading) return <div className="comic-loader">LOADING DOSSIER...</div>;
