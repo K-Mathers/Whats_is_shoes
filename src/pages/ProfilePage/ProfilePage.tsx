@@ -1,11 +1,11 @@
 import "./ProfilePage.css";
 import ProfileCard from "./ui/ProfileCard/ProfileCard";
 import FooterHome from "../HomePage/ui/Footer/FooterHome";
-import Hero from "../HomePage/ui/Hero/Hero";
 import jordanRed from "@/assets/AuthAssets/sneaker1.png";
 import sneakerBlue from "@/assets/AuthAssets/sneaker2.png";
 import burstPow from "@/assets/AuthAssets/burst_pow.png";
 import burstZap from "@/assets/AuthAssets/burst_zap.png";
+import Hero from "@/components/HomePage/ui/Hero/Hero";
 
 const ProfilePage = () => {
   return (
