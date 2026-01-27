@@ -7,13 +7,13 @@ interface ILogoutPage {
 
 const LogoutPage = ({ activeTab }: ILogoutPage) => {
   const navigate = useNavigate();
-  
+
   const handleLogout = async () => {
     try {
       await logoutUser();
       navigate("/");
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 

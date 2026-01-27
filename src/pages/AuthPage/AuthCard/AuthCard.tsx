@@ -88,9 +88,8 @@ const AuthCard = ({ type = "login" }: AuthCard) => {
               <input
                 {...formRegister("email")}
                 placeholder="username@gmail.com"
-                className={`auth-card__input ${
-                  errors.email ? "input-error" : ""
-                }`}
+                className={`auth-card__input ${errors.email ? "input-error" : ""
+                  }`}
               />
               {errors.email && (
                 <span className="field-error">{errors.email.message}</span>
@@ -104,9 +103,8 @@ const AuthCard = ({ type = "login" }: AuthCard) => {
               <input
                 type="password"
                 {...formRegister("password")}
-                className={`auth-card__input ${
-                  errors.password ? "input-error" : ""
-                }`}
+                className={`auth-card__input ${errors.password ? "input-error" : ""
+                  }`}
                 placeholder="Password"
               />
               {errors.password && (
@@ -122,9 +120,8 @@ const AuthCard = ({ type = "login" }: AuthCard) => {
                 <input
                   type="password"
                   {...formRegister("confirmPassword")}
-                  className={`auth-card__input ${
-                    errors.confirmPassword ? "input-error" : ""
-                  }`}
+                  className={`auth-card__input ${errors.confirmPassword ? "input-error" : ""
+                    }`}
                   placeholder="Repeat Password"
                 />
                 {errors.confirmPassword && (

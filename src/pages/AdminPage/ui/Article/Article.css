@@ -1,5 +1,6 @@
 .moderation-page {
-  min-height: 100vh;
+  height: 100%;
+  overflow-y: auto;
   background-color: #ffde03;
   background-image: radial-gradient(#000 10%, transparent 11%);
   background-size: 15px 15px;
@@ -378,37 +379,6 @@
   transform: rotate(-2deg);
 }
 
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.1);
-  }
-}
-
-@media (max-width: 900px) {
-  .card-content-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .mod-header {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-
-  .card-top-bar {
-    position: static;
-    margin-bottom: 20px;
-  }
-
-  .card-actions {
-    grid-template-columns: 1fr;
-  }
-}
-
 .feedback-section {
   display: flex;
   flex-direction: column;
@@ -456,4 +426,35 @@
   color: #aaa;
   font-style: italic;
   font-weight: normal;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 900px) {
+  .card-content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .mod-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .card-top-bar {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .card-actions {
+    grid-template-columns: 1fr;
+  }
 }
