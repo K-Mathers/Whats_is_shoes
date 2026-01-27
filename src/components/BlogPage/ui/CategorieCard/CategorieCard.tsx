@@ -5,7 +5,6 @@ import type { IBlog } from "../../type/type";
 
 const CategorieCard = () => {
   const [blogsList, setBlogsList] = useState<IBlog>();
-  console.log(blogsList);
   const getBlogs = async () => {
     const response = await getPublicBlog();
     setBlogsList(response);

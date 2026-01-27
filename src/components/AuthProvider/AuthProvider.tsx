@@ -10,12 +10,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [user, setUser] = useState<IUserData | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-
   const refreshAuth = async () => {
     try {
       const data = await getUser();
       setUser(data);
-      console.log(data);
       setIsAuthenticated(true);
     } catch (error) {
       setUser(null);
@@ -34,4 +32,3 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     </AuthContext.Provider>
   );
 };
-

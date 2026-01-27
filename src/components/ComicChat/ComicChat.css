@@ -98,7 +98,7 @@
     word-wrap: break-word;
 }
 
-.comic-message-bubble.bot {
+.comic-message-bubble.admin {
     background: #ffde03;
     align-self: flex-start;
     transform: rotate(-1deg);
