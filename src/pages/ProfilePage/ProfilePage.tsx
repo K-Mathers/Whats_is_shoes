@@ -6,8 +6,12 @@ import sneakerBlue from "@/assets/AuthAssets/sneaker2.png";
 import burstPow from "@/assets/AuthAssets/burst_pow.png";
 import burstZap from "@/assets/AuthAssets/burst_zap.png";
 import Hero from "@/components/HomePage/ui/Hero/Hero";
+import { useAuth } from "@/components/AuthProvider/AuthContext/AuthContext";
+import AuthLocked from "@/components/AuthLocked/AuthLocked";
 
 const ProfilePage = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <div className="profile-page-container">
       <div className="profile-header-wrapper">
@@ -15,28 +19,34 @@ const ProfilePage = () => {
       </div>
 
       <div className="profile-content-wrapper">
-        <img
-          src={jordanRed}
-          className="comic-decoration decor-top-left"
-          alt=""
-        />
-        <img
-          src={sneakerBlue}
-          className="comic-decoration decor-top-right"
-          alt=""
-        />
-        <img
-          src={burstPow}
-          className="comic-decoration decor-bottom-left"
-          alt=""
-        />
-        <img
-          src={burstZap}
-          className="comic-decoration decor-bottom-right"
-          alt=""
-        />
+        {isAuthenticated ? (
+          <>
+            <img
+              src={jordanRed}
+              className="comic-decoration decor-top-left"
+              alt=""
+            />
+            <img
+              src={sneakerBlue}
+              className="comic-decoration decor-top-right"
+              alt=""
+            />
+            <img
+              src={burstPow}
+              className="comic-decoration decor-bottom-left"
+              alt=""
+            />
+            <img
+              src={burstZap}
+              className="comic-decoration decor-bottom-right"
+              alt=""
+            />
 
-        <ProfileCard />
+            <ProfileCard />
+          </>
+        ) : (
+          <AuthLocked />
+        )}
       </div>
 
       <FooterHome />
